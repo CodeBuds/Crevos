@@ -317,6 +317,11 @@ def remove
     end
   end
 
+def updategrade
+  update && upgrade
+end
+
+
   #remove from installed packages
   @device[:installed_packages].each do |elem|
     @device[:installed_packages].delete elem if elem[:name] == @pkg.name
@@ -349,6 +354,8 @@ when "remove"
   abort 'Removing actions must be ran with sudo.' unless USER == 'root'
   search @pkgName
   remove
+when "updategrade"
+  update && upgrade
 when nil
   puts "Crevos, version 0.0.1"
   puts "Usage: crevos [command] [package]"
