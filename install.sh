@@ -16,8 +16,8 @@ CREVOS_DEST_DIR=$CREVOS_BREW_DIR/dest
 CREVOS_PACKAGES_PATH=$CREVOS_LIB_PATH/packages
 
 eval "echo 'Welcome to Crevos, Chrome Development Operating System'"
-echo "'By:', $CREVOSCREATORS"
-echo "'Modified By:', $CREVOSMODIFIERS"
+echo "By: $CREVOSCREATORS"
+echo "Modified By: $CREVOSMODIFIERS"
 #Similar to chromebrew check to see if architecture is similar
 user=$(whoami)
 architecture=$(uname -m)
