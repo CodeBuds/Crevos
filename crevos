@@ -350,7 +350,7 @@ when "remove"
   search @pkgName
   remove
 when nil
-  puts "Chromebrew, version 0.2.1"
+  puts "Crevos, version 0.0.1"
   puts "Usage: crevos [command] [package]"
   puts "Available commands: search, download, install, remove"
 else
