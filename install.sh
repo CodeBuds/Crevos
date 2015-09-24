@@ -1,7 +1,7 @@
 #
 # Welcome to Crevos which is something short for Chrome Development Operating System
 # If you need to change the directories for the files below just do so
-# If you would like to contact Eli: <Email> or David: smerkousdavid@gmail.com
+# If you would like to contact Eli: <plunkinguitar@gmail.com> or David: <smerkousdavid@gmail.com>
 # We would be happy to help (P.S. some of this you might see is similar to chromebrew)
 
 # Directories for all files
@@ -21,14 +21,14 @@ user=$(whoami)
 architecture=$(uname -m)
 
 if [ $architecture != "i686" ] && [ $architecture != "x86_64" ]; then
-  echo 'Please make sure you have an intel device for Crevos to work :<('
-  sleep 1
+  echo "Please make sure you have an intel device for Crevos to work :'("
+  sleep 2
   echo 'exiting...'
   exit 1;
 fi
 
 #Double check to remove everything
-read -r -p "Do you want to continue? [y/N] " response
+read -r -p "Do you want to continue? Doing so could void your waranty and break your device [y/n] " response
 case $response in
     [yY][eE][sS]|[yY]) 
         continue
@@ -49,7 +49,7 @@ sudo mkdir -p $CREVOS_BREW_DIR && sudo chown -R $USER:$USER $CREVOS_BREW_DIR
 sudo mkdir -p $CREVOS_DEST_DIR && sudo chown -R $USER:$USER $CREVOS_DEST_DIR
 sudo mkdir -p $CREVOS_PACKAGES_PATH && sudo chown -R $USER:$USER $CREVOS_PACKAGES_PATH
 
-#Like cromebrew have the installation happen in then crew directory
+#Like cromebrew have the installation happen in the crew directory
 cd $CREVOS_BREW_DIR
 
 #EXACLTY from crew because we do need ruby to run this don't we
