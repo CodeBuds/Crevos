@@ -2,7 +2,7 @@
 # Welcome to Crevos which is something short for Chrome Development Operating System
 # If you need to change the directories for the files below just do so
 # If you would like to contact Eli: <plunkinguitar@gmail.com> or David: <smerkousdavid@gmail.com>
-# We would be happy to help (P.S. some of this you might see is similar to chromebrew)
+# We would be happy to help (P.S. some of this you might see is similar to chromebrew by skycocker)
 
 # Directories for all files
 CREVOSCREATORS="David Smerkous and Eli Smith"
