@@ -79,10 +79,10 @@ mv ./filelist $CREVOS_CONFIG_PATH/meta/ruby.filelist
 
 #download, prepare and install Crevos, mostly built from crew
 cd $CREVOS_LIB_PATH
-wget -N --continue --no-check-certificate $URL/crew
-chmod +x crew
-sudo ln -s `pwd`/crew $CREVOS_PRE/bin
-#install crew library
+wget -N --continue --no-check-certificate $URL/crevos
+chmod +x crevos
+sudo ln -s `pwd`/crevos $CREVOS_PRE/bin
+#install crevos library
 mkdir $CREVOS_LIB_PATH/lib && cd $CREVOS_LIB_PATH/lib
 wget -N --continue --no-check-certificate $URL/lib/package.rb
 wget -N --continue --no-check-certificate $URL/lib/package_helpers.rb
