@@ -69,7 +69,7 @@ mv ./filelist $CREVOS_CONFIG_PATH/meta/ruby.filelist
 #download, prepare and install Crevos, mostly built from crew
 cd $CREVOS_LIB_PATH
 wget -N --continue --no-check-certificate $URL/crevos
-chmod +x crevos
+sudo chmod +x crevos
 sudo ln -s `pwd`/crevos $CREVOS_PRE/bin
 #install crevos library
 mkdir $CREVOS_LIB_PATH/lib && cd $CREVOS_LIB_PATH/lib
@@ -131,3 +131,4 @@ git fetch origin master
 git reset --hard origin/master
 echo "Crevos has been installed (ALPHA TO THE BETA)..."
 echo "So see if you can run something graphical"
+ 
