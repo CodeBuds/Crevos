@@ -29,19 +29,6 @@ if [ $architecture != "i686" ] && [ $architecture != "x86_64" ]; then
   exit 1;
 fi
 
-#Double check to remove everything
-read -r -p "Do you want to continue? Doing so could void your waranty and break your device [y/n] " response
-case $response in
-    [yY][eE][sS]|[yY]) 
-        continue
-        ;;
-    *)
-        echo 'Exiting...'
-        sleep 1
-        exit 1;
-        ;;
-esac
-
 #You already asked to wipe everything so lets do it 
 #You must use chown to change ownership of file which is a good idea
 sudo mkdir -p $CREVOS_LIB_PATH && sudo chown -R $USER:$USER $CREVOS_LIB_PATH
