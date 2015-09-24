@@ -137,7 +137,7 @@ git remote add -f origin https://github.com/smerkousdavid/Crevos.git
 git config core.sparsecheckout true
 echo packages >> .git/info/sparse-checkout
 echo lib >> .git/info/sparse-checkout
-echo crew >> .git/info/sparse-checkout
+echo crevos >> .git/info/sparse-checkout
 git fetch origin master
 git reset --hard origin/master
 echo "Crevos has been installed (ALPHA TO THE BETA)...\nSo see if you can run something graphical"
