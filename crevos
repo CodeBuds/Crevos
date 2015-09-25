@@ -10,6 +10,7 @@ require 'fileutils'
 @pkgName = ARGV[1]
 
 CREVOS_PRE = '/usr/local'
+CREVOS_COM_PATH = CREVOS_PRE + '/bin/crevos'
 CREVOS_LIB_PATH = CREVOS_PRE + '/lib/crevos/'
 CREVOS_CONFIG_PATH = CREVOS_PRE + '/etc/crevos/'
 CREVOS_BREW_PATH = CREVOS_PRE + '/tmp/crevos/'
@@ -345,29 +346,19 @@ end
 
 def uninstall
   if "all" == @pkgName
-    sudo rm /usr/local/bin/crevos
-    sudo rm -rf /usr/local/lib/crevos
-    sudo rm -rf /usr/local/etc/crevos
-    sudo rm -rf /usr/local/tmp/crevos
+    sudo rm CREVOS_COM_PATH
+    sudo rm -rf CREVOS_LIB_PATH
+    sudo rm -rf CREVOS_CONFIG_PATH
+    sudo rm -rf CREVOS_BREW_PATH
   end
 end
 
 def crevos_uninstall
-    sudo rm /usr/local/bin/crevos
-    sudo rm -rf /usr/local/lib/crevos
-    sudo rm -rf /usr/local/etc/crevos
-    sudo rm -rf /usr/local/tmp/crevos
+    sudo rm CREVOS_COM_PATH
+    sudo rm -rf CREVOS_LIB_PATH
+    sudo rm -rf CREVOS_CONFIG_PATH
+    sudo rm -rf CREVOS_BREW_PATH
     echo "Crevos uninstalled sucessfully"
-end
-
-def crevos_reinstall
-    sudo rm /usr/local/bin/crevos
-    sudo rm -rf /usr/local/lib/crevos
-    sudo rm -rf /usr/local/etc/crevos
-    sudo rm -rf /usr/local/tmp/crevos
-    system "wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash"
-    resolveDependenciesAndInstall
-    echo "Done"
 end
 
   #remove from installed packages
