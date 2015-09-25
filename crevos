@@ -325,7 +325,7 @@ def updategrade
   upgrade
 end
 
-def reins
+def reinstall
   remove
   install
   resolveDependenciesAndInstall
@@ -341,6 +341,33 @@ def helps
   puts "  updategrade .0."
   puts "  help .0."
   puts "done"
+end
+
+def uninstall
+  if "all" == @pkgName
+    sudo rm /usr/local/bin/crevos
+    sudo rm -rf /usr/local/lib/crevos
+    sudo rm -rf /usr/local/etc/crevos
+    sudo rm -rf /usr/local/tmp/crevos
+  end
+end
+
+def crevos_uninstall
+    sudo rm /usr/local/bin/crevos
+    sudo rm -rf /usr/local/lib/crevos
+    sudo rm -rf /usr/local/etc/crevos
+    sudo rm -rf /usr/local/tmp/crevos
+    echo "Crevos uninstalled sucessfully"
+end
+
+def crevos_reinstall
+    sudo rm /usr/local/bin/crevos
+    sudo rm -rf /usr/local/lib/crevos
+    sudo rm -rf /usr/local/etc/crevos
+    sudo rm -rf /usr/local/tmp/crevos
+    system "wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash"
+    resolveDependenciesAndInstall
+    echo "Done"
 end
 
   #remove from installed packages
@@ -365,16 +392,7 @@ when "download"
   search @pkgName
   download
 when "reinstall"
-  if "all" == @pkgName
-    sudo rm /usr/local/bin/crevos
-    sudo rm -rf /usr/local/lib/crevos
-    sudo rm -rf /usr/local/etc/crevos
-    sudo rm -rf /usr/local/tmp/crevos
-    system "wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash"
-  else
-    search @pkgName
-    reins
-  end
+  reinstall
 when "help"
   helps
 when "update"
@@ -390,6 +408,12 @@ when "remove"
   remove
 when "updategrade"
   updategrade
+when "crevos_uninstall"
+  crevos_uninstall
+when "crevos_reinstall"
+  crevos_uninstall
+  system "wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash"
+  resolveDependenciesAndInstall
 when nil
   puts "Crevos, version 0.0.59"
   puts "Usage: crevos [command] [package]"
