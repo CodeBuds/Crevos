@@ -33,11 +33,13 @@ def setPkg (pkgName, silent = false)
 end
 
 def list_packages
-  puts "(i) means installed"
+  number = 0
+  puts "Installed = (i)"
   Find.find (CREVOS_LIB_PATH + 'packages') do |filename|
     Find.find(CREVOS_CONFIG_PATH + 'meta/') do |packageList|
         packageName = File.basename filename, '.rb'
-        print '(i) ' if packageList == CREVOS_CONFIG_PATH + 'meta/' + packageName + '.filelist' || packageName == "Superpack" || packageName == "buildessentail"
+        print '(i) ' if packageList == CREVOS_CONFIG_PATH + 'meta/' + packageName + '.filelist' || (packageName == "Superpack" && number == 0) || packageName == "buildessential"
+        number += 1
     end
     puts File.basename filename, '.rb' if File.extname(filename) == '.rb'
   end
@@ -329,10 +331,6 @@ def reins
   resolveDependenciesAndInstall
 end
 
-def reinstall
-  system "wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash"
-end
-
 def helps
   puts "Available commands .Arg amount."
   puts "  download .1."
@@ -368,7 +366,11 @@ when "download"
   download
 when "reinstall"
   if "all" == @pkgName
-    reinstall
+    sudo rm /usr/local/bin/crevos
+    sudo rm -rf /usr/local/lib/crevos
+    sudo rm -rf /usr/local/etc/crevos
+    sudo rm -rf /usr/local/tmp/crevos
+    system "wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash"
   else
     search @pkgName
     reins
@@ -393,7 +395,7 @@ when nil
   puts "Usage: crevos [command] [package]"
   puts "Available commands: search, download, install, remove, help, updategrade, reinstall"
 else
-  puts "Crevos doesn't have an idea how to #{@command} :("
+  puts "Crevos doesn't have an idea how to do #{@command} :("
   puts "Available commands: search, download, install, remove, help, updategrade, reinstall"
 end
 
