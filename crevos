@@ -393,7 +393,7 @@ when nil
   puts "Usage: crevos [command] [package]"
   puts "Available commands: search, download, install, remove, help, updategrade, reinstall"
 else
-  puts "Crevos doesn't have an idea how to do #{@command} :("
+  puts "Crevos doesn't have an idea how to #{@command} :("
   puts "Available commands: search, download, install, remove, help, updategrade, reinstall"
 end
 
