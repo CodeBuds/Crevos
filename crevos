@@ -333,14 +333,14 @@ def reinstall
 end
 
 def helps
-  puts "Available commands [Arg amount]"
-  puts "  download [1]"
-  puts "  reinstall [1]"
-  puts "  search [1]"
-  puts "  update [1]"
-  puts "  upgrade [0]
-  puts "  updategrade [0]"
-  puts "  help [0]"
+  puts "Available commands .Arg amount."
+  puts "  download .1."
+  puts "  reinstall .1."
+  puts "  search .1."
+  puts "  update .1."
+  puts "  upgrade .0."
+  puts "  updategrade .0."
+  puts "  help .0."
   puts "done"
 end
 
@@ -366,7 +366,7 @@ when "download"
   search @pkgName
   download
 when "reinstall"
-  if "all" in @pkgName
+  if "all" == @pkgName
     reinstall
   else
     search @pkgName
