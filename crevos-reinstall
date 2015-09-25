@@ -11,5 +11,5 @@ sudo rm -rf /usr/local/lib/crevos/
 sudo rm /usr/local/bin/crevos
 sudo rm -rf /usr/local/etc/crevos/
 sudo rm -rf /usr/local/tmp/crevos/
-echo "You have sucessfully uninstalled Crevos"
 wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash
+echo "You have sucessfully reinstalled Crevos"
