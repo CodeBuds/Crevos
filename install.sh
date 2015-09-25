@@ -120,3 +120,6 @@ git fetch origin master
 git reset --hard origin/master
 echo "Crevos has been installed (ALPHA TO THE BETA TO THE ALPHA)..."
 echo "So see if you can run something graphical"
+
+cd $CBIN
+chmod +x crevos
