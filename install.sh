@@ -10,6 +10,7 @@ CREATORS="David Smerkous and Eli Smith"
 MODIFIERS="NONE"
 URL="https://raw.github.com/smerkousdavid/Crevos/master"
 CPREFIX=/usr/local
+CBIN=$CPREFIX/bin
 CLIB=$CPREFIX/lib/crevos/
 CCONFIG=$CPREFIX/etc/crevos/
 CBREW=$CPREFIX/tmp/crevos/
@@ -73,11 +74,14 @@ cd $CLIB
 wget -N --continue --no-check-certificate $URL/crevos
 sudo chmod +x crevos
 chmod +x crevos
-sudo ln -s `pwd`/crevos $CREVOS_PRE/bin
+sudo ln -s `pwd`/crevos $CPREFIX/bin
 #install crevos library
-mkdir $CREVOS_LIB_PATH/lib && cd $CREVOS_LIB_PATH/lib
+mkdir $CLIB/lib && cd $CLIB/lib
 wget -N --continue --no-check-certificate $URL/lib/package.rb
 wget -N --continue --no-check-certificate $URL/lib/package_helpers.rb
+
+cd $CBIN
+chmod +x crevos
 
 #create the device.json file (We will need to fix this up later), Copied from chromebrew
 cd $CCONFIG
