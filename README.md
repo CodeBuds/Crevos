@@ -14,15 +14,15 @@ And this will install Crevos for you
 Help out
 ------------
 
-This is a public repo, but mostly made for a private event for our school, don't expect this repo to be so popular because it was intended for a specific chromebook, toshiba chromebooks and toshiba chromebooks 2...
+This is a public repo, but mostly made for a private event for our school, don't expect this repo to be so popular because it was intended for a specific chromebook, toshiba chromebooks and toshiba chromebooks 2...</br>
 
 ####Contact
-If you can help/give some input please use these contact methods
-David Smerkous:(Email) smerkousdavid@gmail.com
+If you can help/give some input please use these contact methods</br>
+David Smerkous:(Email) smerkousdavid@gmail.com</br>
                (Phone) 801-425-1681
-Eli Smith:(INFO) BLANK
+Eli Smith:(INFO) BLANK</br>
 Other Info
 ------------
 
-  A lot of this is pre-made by skycocker, but pushing the new packages through chromebrew, was quite annoying for me, as in I wanted to have more access to the filesys without requesting for permission for every comment, this was made for school so if you want a general (As in not package/chromebook more specific kind of packages) got to chromebrew for better/probably better updated options, so we created a seperate repo, and are trying to get applications like, Arduino, Netlogo, etc... running graphically for chromebooks without crouton, To give credit for the base of Crevos here is chromebrew 
-    http://skycocker.github.io/chromebrew/
+  A lot of this is pre-made by skycocker, but pushing the new packages through chromebrew, was quite annoying for me, as in I wanted to have more access to the filesys without requesting for permission for every comment, this was made for school so if you want a general (As in not package/chromebook more specific kind of packages) got to chromebrew for better/probably better updated options, so we created a seperate repo, and are trying to get applications like, Arduino, Netlogo, etc... running graphically for chromebooks without crouton, To give credit for the base of Crevos here is chromebrew</br>
+http://skycocker.github.io/chromebrew/
