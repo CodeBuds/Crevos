@@ -1,0 +1,15 @@
+#!/bin/bash
+while true; do
+  read -p "Do you want to uninstall Crevos? [y/n]" yn
+  case $yn in
+  [yY]* ) break;;
+  [nN]* ) exit;;
+  * ) echo "Please type y or n";; 
+  esac
+done
+sudo rm -rf /usr/local/lib/crevos/
+sudo rm /usr/local/bin/crevos
+sudo rm -rf /usr/local/etc/crevos/
+sudo rm -rf /usr/local/tmp/crevos/
+echo "You have sucessfully uninstalled Crevos"
+wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash
