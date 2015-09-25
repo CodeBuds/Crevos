@@ -346,18 +346,18 @@ end
 
 def uninstall
   if "all" == @pkgName
-    sudo rm CREVOS_COM_PATH
-    sudo rm -rf (CREVOS_LIB_PATH)
-    sudo rm -rf (CREVOS_CONFIG_PATH)
-    sudo rm -rf (CREVOS_BREW_PATH)
+    system "sudo rm "CREVOS_COM_PATH
+    system "sudo rm -rf "CREVOS_LIB_PATH
+    system "sudo rm -rf "CREVOS_CONFIG_PATH
+    system "sudo rm -rf "CREVOS_BREW_PATH
   end
 end
 
 def crevos_uninstall
-    sudo rm (CREVOS_COM_PATH)
-    sudo rm -rf (CREVOS_LIB_PATH)
-    sudo rm -rf (CREVOS_CONFIG_PATH)
-    sudo rm -rf (CREVOS_BREW_PATH)
+    system "sudo rm "(CREVOS_COM_PATH)
+    system "sudo rm -rf "CREVOS_LIB_PATH
+    system "sudo rm -rf "CREVOS_CONFIG_PATH
+    system "sudo rm -rf "CREVOS_BREW_PATH
     echo "Crevos uninstalled sucessfully"
 end
 
