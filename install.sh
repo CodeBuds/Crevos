@@ -75,13 +75,24 @@ wget -N --continue --no-check-certificate $URL/crevos
 sudo chmod +x crevos
 chmod +x crevos
 sudo ln -s `pwd`/crevos $CPREFIX/bin
+wget -N --continue --no-check-certificate $URL/crevos-uninstall
+sudo chmod +x crevos-uninstall
+chmod +x crevos
+sudo ln -s `pwd`/crevos $CBIN
+wget -N --continue --no-check-certificate $URL/crevos-reinstall
+sudo chmod +x crevos-reinstall
+chmod +x crevos-reinstall
+sudo ln -s `pwd`/crevos $CBIN
 #install crevos library
-mkdir $CLIB/lib && cd $CLIB/lib
+mkdir $CLIB/lib && cd $CBIN
 wget -N --continue --no-check-certificate $URL/lib/package.rb
 wget -N --continue --no-check-certificate $URL/lib/package_helpers.rb
 
 cd $CBIN
 chmod +x crevos
+chmod +x crevos-uninstall
+chmod +x crevos-reinstall
+
 
 #create the device.json file (We will need to fix this up later), Copied from chromebrew
 cd $CCONFIG
@@ -100,7 +111,7 @@ echo "}" >> device.json
 #download git and its dependencies .rb package files
 echo 'Installing dependencies...'
 cd $CPACKAGES
-wget -N --continue --no-check-certificate $URL/packages/Superpack.rb
+wget -N --continue --no-check-certificate $URL/packages/allDepends.rb
 
 #install readline for ruby
 (echo y;) | crevos install readline
