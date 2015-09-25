@@ -337,7 +337,7 @@ def helps
   puts "  reinstall .1."
   puts "  search .1."
   puts "  update .1."
-  puts "  upgrade .0."
+  puts "  upgrade .1."
   puts "  updategrade .0."
   puts "  help .0."
   puts "done"
