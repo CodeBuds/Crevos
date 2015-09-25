@@ -19,7 +19,7 @@ This is a public repo, but mostly made for a private event for our school, don't
 ####Contact
 If you can help/give some input please use these contact methods</br>
 David Smerkous:(Email) smerkousdavid@gmail.com</br>
-               (Phone) 801-425-1681
+               (Phone) 801-425-1681</br>
 Eli Smith:(INFO) BLANK</br>
 Other Info
 ------------
