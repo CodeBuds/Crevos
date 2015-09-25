@@ -33,10 +33,11 @@ def setPkg (pkgName, silent = false)
 end
 
 def list_packages
+  puts "(i) means installed"
   Find.find (CREVOS_LIB_PATH + 'packages') do |filename|
     Find.find(CREVOS_CONFIG_PATH + 'meta/') do |packageList|
         packageName = File.basename filename, '.rb'
-        print '(i) ' if packageList == CREVOS_CONFIG_PATH + 'meta/' + packageName + '.filelist' 
+        print '(i) ' if packageList == CREVOS_CONFIG_PATH + 'meta/' + packageName + '.filelist' || packageName == "Superpack" || packageName == "buildessentail"
     end
     puts File.basename filename, '.rb' if File.extname(filename) == '.rb'
   end
