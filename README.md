@@ -14,7 +14,7 @@ And this will install Crevos for you
 Help out
 ------------
 
-This is a public repo, but mostly made for a private event for our school, don't expect this repo to be so popular because it was intended for a specific chromebook, toshiba chromebooks and toshiba chromebooks 2...</br>
+This is a public repo, but mostly made for a private event for our school, if wanting to help, please message us below</br>
 
 ####Contact
 If you can help/give some input please use these contact methods</br>
