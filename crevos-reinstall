@@ -1,6 +1,6 @@
 #!/bin/bash
 while true; do
-  read -p "Do you want to uninstall Crevos? [y/n]" yn
+  read -p "Do you want to reinstall Crevos? [y/n]" yn
   case $yn in
   [yY]* ) break;;
   [nN]* ) exit;;
