@@ -9,7 +9,7 @@ Install
 Copy and paste this into the development script for chrome os
 And this will install Crevos for you
 
-    wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash
+    wget -q -O - https://raw.github.com/CodeBuds/Crevos/master/install.sh | bash
     
 Help out
 ------------
