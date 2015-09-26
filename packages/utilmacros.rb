@@ -5,8 +5,6 @@ class Utilmacros < Package
   source_url 'ftp://ftp.x.org/pub/individual/util/util-macros-1.19.0.tar.bz2'
   source_sha1 '1cf984125e75f8204938d998a8b6c1e1'
 
-  depends_on 'buildessential'
-
   def self.build
     system "./configure $XORG_CONFIG"
     system "make"
