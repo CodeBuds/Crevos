@@ -1,4 +1,4 @@
-#/bin/sh -e
+#!/bin/sh -e
 wget -N --continue --no-check-certificate $URL/packages/twm.rb
 wget -N --continue --no-check-certificate $URL/packages/xbitmaps.rb
 wget -N --continue --no-check-certificate $URL/packages/xcbproto.rb
