@@ -143,11 +143,32 @@ wget -N --continue --no-check-certificate $URL/packages/pkgconfig.rb
 wget -N --continue --no-check-certificate $URL/packages/gtk.rb
 wget -N --continue --no-check-certificate $URL/packages/utilmacros.rb
 wget -N --continue --no-check-certificate $URL/packages/libxau.rb
+wget -N --continue --no-check-certificate $URL/packages/libxcb.rb
+wget -N --continue --no-check-certificate $URL/packages/libxdmcp.rb
+wget -N --continue --no-check-certificate $URL/packages/nano.rb
+wget -N --continue --no-check-certificate $URL/packages/nanoinst.rb
+wget -N --continue --no-check-certificate $URL/packages/twm.rb
+wget -N --continue --no-check-certificate $URL/packages/xbitmaps.rb
+wget -N --continue --no-check-certificate $URL/packages/xcbproto.rb
+wget -N --continue --no-check-certificate $URL/packages/xcbutil.rb
+wget -N --continue --no-check-certificate $URL/packages/xcbutilimage.rb
+wget -N --continue --no-check-certificate $URL/packages/xcbutilkeysysms.rb
+wget -N --continue --no-check-certificate $URL/packages/xcbutilrender.rb
+wget -N --continue --no-check-certificate $URL/packages/xcbutilwm.rb
+wget -N --continue --no-check-certificate $URL/packages/xcursor.rb
+wget -N --continue --no-check-certificate $URL/packages/xkeyboardconf.rb
+wget -N --continue --no-check-certificate $URL/packages/xorgserver.rb
+wget -N --continue --no-check-certificate $URL/packages/xpix.rb
+wget -N --continue --no-check-certificate $URL/packages/freetype.rb
+wget -N --continue --no-check-certificate $URL/packages/libevdev.rb
+wget -N --continue --no-check-certificate $URL/packages/fontconfig.rb
+wget -N --continue --no-check-certificate $URL/packages/jdk8.rb
+
 #install readline for ruby
-(echo y;) | | crevos install readline
+(echo y;) | crevos install readline
 
 #install git
-(echo y;) | | crevos install git
+(echo y;) | crevos install git
 
 #install nano
 echo "Installing nano"
@@ -218,6 +239,9 @@ sudo mkdir proto && cd proto && sudo grep -v '^#' ../proto-7.7.md5 | awk '{print
 (echo y;) | crevos install libxdmcp
 (echo y;) | crevos install xcbproto
 (echo y;) | crevos install libxcb
+(echo y;) | crevos install xpix
+(echo y;) | crevos install fontconfig
+(echo y;) | crevos install jdk8
 echo "Trying to install graphical libraries"
 sudo cat > lib-7.7.md5 << "EOF"
 c5ba432dd1514d858053ffe9f4737dd8  xtrans-1.3.5.tar.bz2
