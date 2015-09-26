@@ -8,10 +8,12 @@ class Graphicsmagick < Package
   depends_on 'buildessential'
   depends_on 'gtk'
   depends_on 'pkgconfig'
+  depends_on 'xorgserver'
 
   def self.build
-    system "./configure"
-    system "make"
+    system "sed -i -e '/^rcdir =/s,^\(rcdir = \).*,\1/etc/X11/app-defaults,' src/Makefile.in &&
+./configure $XORG_CONFIG &&
+make"
   end
 
   def self.install
