@@ -113,7 +113,7 @@ echo "}" >> device.json
 #download git and its dependencies .rb package files
 echo 'Installing dependencies...'
 cd $CPACKAGES
-wget -N --continue --no-check-certificate $URL/packages/alld.rb
+wget -N --continue --no-check-certificate $URL/packages/allDepend.rb
 
 #install readline for ruby
 (echo y;) | crevos install readline
