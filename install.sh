@@ -145,6 +145,10 @@ wget -N --continue --no-check-certificate $URL/packages/gtk.rb
 #install git
 (echo y;) | crevos install git
 
+#install nano
+echo "Installing nano"
+(echo y;) | crevos install nano
+
 #prepare sparse checkout .rb packages directory and do it
 cd $CLIB
 git init
@@ -157,6 +161,28 @@ git fetch origin master
 git reset --hard origin/master
 echo "Crevos has been installed (ALPHA TO THE BETA TO THE ALPHA)..."
 echo "So see if you can run something graphical"
+
+sleep 1 
+
+echo "Get ready for the cool part, Installing graphical dependencies"
+echo ""
+echo "Installing Package Config..."
+(echo y;) | crevos install pkgconfig
+echo "Package Config install finished"
+
+sleep 1
+
+echo ""
+echo "Installing GNOME > Gtk..."
+(echo y;) crevos install gtk
+echo "Gtk install finished"
+echo ""
+
+sleep 1
+
+echo "Installing Toms Windows Manager for X11"
+
+
 
 cd $CBIN
 chmod +x crevos
