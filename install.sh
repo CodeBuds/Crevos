@@ -45,7 +45,9 @@ sudo mkdir -p $CPACKAGES && sudo chown -R $USER:$USER $CPACKAGES
 cd $CBREW
 
 #EXACLTY from crew because we do need ruby to run this don't we
-echo "Downloading program managment file runner... aka Ruby"
+echo "Downloading Ruby"
+
+sleep 2
 
 case "$architecture" in
 "i686")
@@ -77,14 +79,14 @@ chmod +x crevos
 sudo ln -s `pwd`/crevos $CPREFIX/bin
 wget -N --continue --no-check-certificate $URL/crevos-uninstall
 sudo chmod +x crevos-uninstall
-chmod +x crevos
-sudo ln -s `pwd`/crevos $CBIN
+chmod +x crevos-uninstall
+sudo ln -s `pwd`/crevos-uninstall $CPREFIX/bin
 wget -N --continue --no-check-certificate $URL/crevos-reinstall
 sudo chmod +x crevos-reinstall
 chmod +x crevos-reinstall
-sudo ln -s `pwd`/crevos $CBIN
+sudo ln -s `pwd`/crevos-reinstall $CPREFIX/bin
 #install crevos library
-mkdir $CLIB/lib && cd $CBIN
+mkdir $CLIB/lib && cd $CPREFIX/bin
 wget -N --continue --no-check-certificate $URL/lib/package.rb
 wget -N --continue --no-check-certificate $URL/lib/package_helpers.rb
 
@@ -134,3 +136,5 @@ echo "So see if you can run something graphical"
 
 cd $CBIN
 chmod +x crevos
+chmod +x crevos-uninstall
+chmod +x crevos-reinstall
