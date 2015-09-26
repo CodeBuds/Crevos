@@ -136,6 +136,8 @@ wget -N --continue --no-check-certificate $URL/packages/mpfr.rb
 wget -N --continue --no-check-certificate $URL/packages/gmp.rb
 wget -N --continue --no-check-certificate $URL/packages/glibc.rb
 wget -N --continue --no-check-certificate $URL/packages/linuxheaders.rb
+wget -N --continue --no-check-certificate $URL/packages/pkgconfig.rb
+wget -N --continue --no-check-certificate $URL/packages/gtk.rb
 
 #install readline for ruby
 (echo y;) | crevos install readline
