@@ -163,6 +163,7 @@ wget -N --continue --no-check-certificate $URL/packages/freetype.rb
 wget -N --continue --no-check-certificate $URL/packages/libevdev.rb
 wget -N --continue --no-check-certificate $URL/packages/fontconfig.rb
 wget -N --continue --no-check-certificate $URL/packages/jdk8.rb
+wget -N --continue --no-check-certificate $URL/packages/xterm.rb
 
 #install readline for ruby
 (echo y;) | crevos install readline
@@ -399,6 +400,7 @@ sudo md5sum -c ../font-7.7.md5
 (echo y;) | crevos install xorgserver
 (echo y;) | crevos install libevdev
 (echo y;) | crevos install twm
+(echo y;) | crevos install xterm
 
 #prepare sparse checkout .rb packages directory and do it
 cd $CLIB
