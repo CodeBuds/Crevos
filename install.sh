@@ -149,19 +149,6 @@ wget -N --continue --no-check-certificate $URL/packages/gtk.rb
 echo "Installing nano"
 (echo y;) | crevos install nano
 
-#prepare sparse checkout .rb packages directory and do it
-cd $CLIB
-git init
-git remote add -f origin https://github.com/CodeBuds/Crevos.git
-git config core.sparsecheckout true
-echo packages >> .git/info/sparse-checkout
-echo lib >> .git/info/sparse-checkout
-echo crevos >> .git/info/sparse-checkout
-git fetch origin master 
-git reset --hard origin/master
-echo "Crevos has been installed (ALPHA TO THE BETA TO THE ALPHA)..."
-echo "So see if you can run something graphical"
-
 sleep 1 
 
 echo "Get ready for the cool part, Installing graphical dependencies"
@@ -182,7 +169,18 @@ sleep 1
 
 echo "Installing Toms Windows Manager for X11"
 
-
+#prepare sparse checkout .rb packages directory and do it
+cd $CLIB
+git init
+git remote add -f origin https://github.com/CodeBuds/Crevos.git
+git config core.sparsecheckout true
+echo packages >> .git/info/sparse-checkout
+echo lib >> .git/info/sparse-checkout
+echo crevos >> .git/info/sparse-checkout
+git fetch origin master 
+git reset --hard origin/master
+echo "Crevos has been installed (ALPHA TO THE BETA TO THE ALPHA)..."
+echo "So see if you can run something graphical"
 
 cd $CBIN
 chmod +x crevos
