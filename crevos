@@ -38,13 +38,15 @@ def setPkg (pkgName, silent = false)
 end
 
 def list_packages
-  number = 0
+  numberss = 0
+  numbersss = 0
   puts "Installed = (i)"
   Find.find (CREVOS_LIB_PATH + 'packages') do |filename|
     Find.find(CREVOS_CONFIG_PATH + 'meta/') do |packageList|
         packageName = File.basename filename, '.rb'
-        print '(i) ' if packageList == CREVOS_CONFIG_PATH + 'meta/' + packageName + '.filelist' || (packageName == "Superpack" && number == 0) || packageName == "buildessential"
-        number += 1
+        print '(i) ' if packageList == CREVOS_CONFIG_PATH + 'meta/' + packageName + '.filelist' || (packageName == "Superpack" && numberss == 0) || (packageName == "buildessential" && numbersss == 0)
+        numberss = 1 if packageName == "allDepend"
+        numbersss = 1 if packageName == "buildessential"
     end
     puts File.basename filename, '.rb' if File.extname(filename) == '.rb'
   end
