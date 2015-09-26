@@ -21,6 +21,10 @@ CPACKAGES=$CLIB/packages
 echo "Welcome to Crevos, Chrome Development Operating System"
 echo "By: $CREATORS"
 echo "Modified By: $MODIFIERS"
+echo ""
+echo ""
+
+sleep 1
 
 #Similar to chromebrew check to see if architecture is similar
 user=$(whoami)
