@@ -21,8 +21,5 @@ class AllDepend < Package
   depends_on 'perl'
   depends_on 'python'
   depends_on 'git'
-  depends_on 'glibc'
-  depends_on 'libssh2'
-  depends_on 'linuxheaders'
   depends_on 'readline'
 end
