@@ -5,15 +5,8 @@ class Twm < Package
   source_url 'ftp://ftp.x.org/pub/individual/app/twm-1.0.9.tar.bz2'
   source_sha1 '59a6f076cdacb5f6945dac809bcf4906'
 
-  depends_on 'buildessential'
-  depends_on 'gtk'
-  depends_on 'pkgconfig'
-  depends_on 'xorgserver'
-
   def self.build
-    system "sed -i -e '/^rcdir =/s,^\(rcdir = \).*,\1/etc/X11/app-defaults,' src/Makefile.in &&
-./configure $XORG_CONFIG &&
-make"
+    system "sed -i -e '/^rcdir =/s,^\(rcdir = \).*,\1/etc/X11/app-defaults,' src/Makefile.in && ./configure $XORG_CONFIG && make"
   end
 
   def self.install
