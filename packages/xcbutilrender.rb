@@ -2,8 +2,8 @@ require 'package'
 
 class Xcbutilrender < Package
   version '0.1.1'
-  source_url 'http://xcb.freedesktop.org/dist/xcb-util-keysyms-0.4.0.tar.bz2'
-  source_sha1 '1022293083eec9e62d5659261c29e367'
+  source_url 'http://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2'
+  source_sha1 '468b119c94da910e1291f3ffab91019a'
 
   depends_on 'buildessential'
 
