@@ -8,7 +8,7 @@
 # Directories for all files
 CREATORS="David Smerkous and Eli Smith"
 MODIFIERS="NONE"
-URL="https://raw.github.com/smerkousdavid/Crevos/master"
+URL="https://raw.github.com/CodeBuds/Crevos/master"
 CPREFIX=/usr/local
 CBIN=$CPREFIX/bin
 CLIB=$CPREFIX/lib/crevos/
@@ -142,7 +142,7 @@ wget -N --continue --no-check-certificate $URL/packages/linuxheaders.rb
 #prepare sparse checkout .rb packages directory and do it
 cd $CLIB
 git init
-git remote add -f origin https://github.com/smerkousdavid/Crevos.git
+git remote add -f origin https://github.com/CodeBuds/Crevos.git
 git config core.sparsecheckout true
 echo packages >> .git/info/sparse-checkout
 echo lib >> .git/info/sparse-checkout
