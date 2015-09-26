@@ -13,7 +13,7 @@ class Ncurses_so < Package
   end
 
   def self.install
-    out = "#{CREW_DEST_DIR}/usr/local/lib"
+    out = "#{CREVOS_DEST_DIR}/usr/local/lib"
     system "mkdir -p #{out}"
     ["form", "menu", "ncurses", "panel"].each do |lib|
       system "cp", "lib/lib#{lib}.so.5.9", out
