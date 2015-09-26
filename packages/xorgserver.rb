@@ -8,8 +8,6 @@ class Xorgserv < Package
   depends_on 'buildessential'
   depends_on 'gtk'
   depends_on 'pkgconfig'
-  depends_on 'xorgkey'
-  depends_on 'xfonts'
 
   def self.build
     system "./configure $XORG_CONFIG --enable-glamor --enable-install-setuid --enable-suid-wrapper --disable-systemd-logind --with-xkb-output=/var/lib/xkb"
@@ -17,6 +15,11 @@ class Xorgserv < Package
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREW_DEST_DIR}", "install && mkdir -pv /etc/X11/xorg.conf.d"
+    system "make", "DESTDIR=#{CREW_DEST_DIR}", "install && 
+    sudo mkdir -pv /etc/X11/xorg.conf.d &&
+    sudo cat >> /etc/sysconfig/createfiles << "EOF"
+    /tmp/.ICE-unix dir 1777 root root
+    /tmp/.X11-unix dir 1777 root root
+    EOF"
   end
 end
