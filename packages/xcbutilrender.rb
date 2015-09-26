@@ -5,8 +5,6 @@ class Xcbutilrender < Package
   source_url 'http://xcb.freedesktop.org/dist/xcb-util-renderutil-0.3.9.tar.bz2'
   source_sha1 '468b119c94da910e1291f3ffab91019a'
 
-  depends_on 'buildessential'
-
   def self.build
     system "./configure $XORG_CONFIG"
     system "make"
