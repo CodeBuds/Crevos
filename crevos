@@ -20,6 +20,10 @@ $LOAD_PATH.unshift "#{CREVOS_LIB_PATH}lib"
 
 USER = `whoami`.chomp
 
+system "chmod +x /usr/local/bin/crevos"
+system "chmod +x /usr/local/bin/crevos-reinstall"
+system "chmod +x /usr/local/bin/crevos-uninstall"
+
 @device = JSON.parse(File.read(CREVOS_CONFIG_PATH + 'device.json'), symbolize_names: true)
 #symbolize also values
 @device.each do |key, elem|
@@ -399,12 +403,11 @@ when "remove"
   remove
 when "updategrade"
   updategrade
-when "crevos_uninstall"
+when "uninstall-all"
   crevos_uninstall
-when "crevos_reinstall"
+when "reinstall-all"
   crevos_uninstall
   system "wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash"
-  resolveDependenciesAndInstall
 when nil
   puts "Crevos, version 0.0.59"
   puts "Usage: crevos [command] [package]"
