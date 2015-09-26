@@ -13,3 +13,4 @@ sudo rm -rf /usr/local/etc/crevos/
 sudo rm -rf /usr/local/tmp/crevos/
 wget -q -O - https://raw.github.com/CodeBuds/Crevos/master/install.sh | bash
 echo "You have sucessfully reinstalled Crevos"
+echo "Use crevos to see the commands"
