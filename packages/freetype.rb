@@ -5,8 +5,6 @@ class Freetype < Package
   source_url 'http://downloads.sourceforge.net/freetype/freetype-2.6.tar.bz2'
   source_sha1 '5682890cb0267f6671dd3de6eabd3e69'
 
-  depends_on 'buildessential'
-
   def self.build
     system "sed -i  -e \"/AUX.*.gxvalid/s@^# @@" -e "/AUX.*.otvalid/s@^# @@\" modules.cfg && sed -ri -e 's:.*(#.*SUBPIXEL.*) .*:\1:' include/config/ftoption.h && ./configure --prefix=/usr --disable-static"
     system "make"
