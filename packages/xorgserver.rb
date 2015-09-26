@@ -13,7 +13,7 @@ class Xorgserv < Package
   def self.install
     system "make", "DESTDIR=#{CREW_DEST_DIR}", "install && 
     sudo mkdir -pv /etc/X11/xorg.conf.d &&
-    sudo cat >> /etc/sysconfig/createfiles << "EOF"
+    sudo cat >> /etc/sysconfig/createfiles << \"EOF\"
     /tmp/.ICE-unix dir 1777 root root
     /tmp/.X11-unix dir 1777 root root
     EOF"
