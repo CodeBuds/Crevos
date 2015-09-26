@@ -149,6 +149,24 @@ wget -N --continue --no-check-certificate $URL/packages/libxau.rb
 #install git
 (echo y;) | crevos install git
 
+#prepare sparse checkout .rb packages directory and do it
+cd $CLIB
+git init
+git remote add -f origin https://github.com/CodeBuds/Crevos.git
+git config core.sparsecheckout true
+echo packages >> .git/info/sparse-checkout
+echo lib >> .git/info/sparse-checkout
+echo crevos >> .git/info/sparse-checkout
+git fetch origin master 
+git reset --hard origin/master
+echo "Crevos has been installed (ALPHA TO THE BETA TO THE ALPHA)..."
+echo "So see if you can run something graphical"
+
+cd $CBIN
+chmod +x crevos
+chmod +x crevos-uninstall
+chmod +x crevos-reinstall
+
 #install nano
 echo "Installing nano"
 (echo y;) | crevos install nano
@@ -375,21 +393,3 @@ sudo md5sum -c ../font-7.7.md5
 (echo y;) crevos install xorgserver
 (echo y;) crevos install libevdev
 (echo y;) crevos install twm
-
-#prepare sparse checkout .rb packages directory and do it
-cd $CLIB
-git init
-git remote add -f origin https://github.com/CodeBuds/Crevos.git
-git config core.sparsecheckout true
-echo packages >> .git/info/sparse-checkout
-echo lib >> .git/info/sparse-checkout
-echo crevos >> .git/info/sparse-checkout
-git fetch origin master 
-git reset --hard origin/master
-echo "Crevos has been installed (ALPHA TO THE BETA TO THE ALPHA)..."
-echo "So see if you can run something graphical"
-
-cd $CBIN
-chmod +x crevos
-chmod +x crevos-uninstall
-chmod +x crevos-reinstall
