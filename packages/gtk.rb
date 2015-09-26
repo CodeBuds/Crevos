@@ -8,7 +8,7 @@ class Gtk < Package
   depends_on 'pkgconfig'
   
   def self.build
-    system "./configure --prefix=/opt/gtk --with-internal-glib --libdir=/usr/local/lib64/ CC=\"gcc -m64\" CFLAGS=\" -fPIC\""
+    system "./configure --with-internal-glib --libdir=/usr/local/lib64/ CC=\"gcc -m64\" CFLAGS=\" -fPIC\""
     system "make"
   end
   
