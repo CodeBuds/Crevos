@@ -5,10 +5,6 @@ class Xorgserv < Package
   source_url 'ftp://ftp.x.org/pub/individual/xserver/xorg-server-1.17.2.tar.bz2'
   source_sha1 '397e405566651150490ff493e463f1ad'
 
-  depends_on 'buildessential'
-  depends_on 'gtk'
-  depends_on 'pkgconfig'
-
   def self.build
     system "./configure $XORG_CONFIG --enable-glamor --enable-install-setuid --enable-suid-wrapper --disable-systemd-logind --with-xkb-output=/var/lib/xkb"
     system "make"
