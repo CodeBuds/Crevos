@@ -113,7 +113,25 @@ echo "}" >> device.json
 #download git and its dependencies .rb package files
 echo 'Installing dependencies...'
 cd $CPACKAGES
-wget -N --continue --no-check-certificate $URL/packages/allDepend.rb
+wget -N --continue --no-check-certificate $URL/packages/git.rb
+wget -N --continue --no-check-certificate $URL/packages/zlibpkg.rb
+wget -N --continue --no-check-certificate $URL/packages/libssh2.rb
+wget -N --continue --no-check-certificate $URL/packages/perl.rb
+wget -N --continue --no-check-certificate $URL/packages/curl.rb
+wget -N --continue --no-check-certificate $URL/packages/expat.rb
+wget -N --continue --no-check-certificate $URL/packages/gettext.rb
+wget -N --continue --no-check-certificate $URL/packages/python.rb
+wget -N --continue --no-check-certificate $URL/packages/readline.rb
+wget -N --continue --no-check-certificate $URL/packages/ruby.rb
+wget -N --continue --no-check-certificate $URL/packages/buildessential.rb
+wget -N --continue --no-check-certificate $URL/packages/gcc.rb
+wget -N --continue --no-check-certificate $URL/packages/binutils.rb
+wget -N --continue --no-check-certificate $URL/packages/make.rb
+wget -N --continue --no-check-certificate $URL/packages/mpc.rb
+wget -N --continue --no-check-certificate $URL/packages/mpfr.rb
+wget -N --continue --no-check-certificate $URL/packages/gmp.rb
+wget -N --continue --no-check-certificate $URL/packages/glibc.rb
+wget -N --continue --no-check-certificate $URL/packages/linuxheaders.rb
 
 #install readline for ruby
 (echo y;) | crevos install readline
