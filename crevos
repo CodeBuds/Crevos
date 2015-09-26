@@ -328,13 +328,19 @@ def remove
   end
 
 def updategrade
+  system "chmod +x " + CREVOS_COM_PATH
   update
+  system "chmod +x " + CREVOS_COM_PATH
   upgrade
+  system "chmod +x " + CREVOS_COM_PATH
 end
 
 def reinstall
+  system "chmod +x " + CREVOS_COM_PATH
   remove
+  system "chmod +x " + CREVOS_COM_PATH
   install
+  system "chmod +x " + CREVOS_COM_PATH
   resolveDependenciesAndInstall
 end
 
@@ -385,38 +391,52 @@ when "search"
   else
     list_packages
   end
+  system "chmod +x " + CREVOS_COM_PATH
 when "download"
   search @pkgName
   download
+  system "chmod +x " + CREVOS_COM_PATH
 when "reinstall"
   reinstall
+  system "chmod +x " + CREVOS_COM_PATH
 when "help"
   helps
+  system "chmod +x " + CREVOS_COM_PATH
 when "update"
   update
+  system "chmod +x " + CREVOS_COM_PATH
 when "upgrade"
   upgrade
+  system "chmod +x " + CREVOS_COM_PATH
 when "install"
   search @pkgName
   resolveDependenciesAndInstall
+  system "chmod +x " + CREVOS_COM_PATH
 when "remove"
   abort 'Removing actions must be ran with sudo.' unless USER == 'root'
   search @pkgName
   remove
+  system "chmod +x " + CREVOS_COM_PATH
 when "updategrade"
   updategrade
+  system "chmod +x " + CREVOS_COM_PATH
 when "uninstall-all"
   crevos_uninstall
+  system "chmod +x " + CREVOS_COM_PATH
 when "reinstall-all"
   crevos_uninstall
+  system "chmod +x " + CREVOS_COM_PATH
   system "wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash"
+  system "chmod +x " + CREVOS_COM_PATH
 when nil
   puts "Crevos, version 0.0.59"
   puts "Usage: crevos [command] [package]"
   puts "Available commands: search, download, install, remove, help, updategrade, reinstall"
+  system "chmod +x " + CREVOS_COM_PATH
 else
   puts "Crevos doesn't have an idea how to do #{@command} :("
   puts "Available commands: search, download, install, remove, help, updategrade, reinstall"
+  system "chmod +x " + CREVOS_COM_PATH
 end
 
 
