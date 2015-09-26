@@ -16,7 +16,7 @@ class Diffutils < Package
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREW_DEST_DIR}", "install"
+    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
   end
 end
 
@@ -33,7 +33,7 @@ class Ncurses < Package
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREW_DEST_DIR}", "install"
+    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
   end
 end
 
@@ -50,7 +50,7 @@ class Ncurses_so < Package
   end
 
   def self.install
-    out = "#{CREW_DEST_DIR}/usr/local/lib"
+    out = "#{CREVOS_DEST_DIR}/usr/local/lib"
     system "mkdir -p #{out}"
     ["form", "menu", "ncurses", "panel"].each do |lib|
       system "cp", "lib/lib#{lib}.so.5.9", out
@@ -81,6 +81,6 @@ class Nano < Package
   end
   
   def self.install                                                # self.install contains commands needed to install the software on the target system
-    system "make", "DESTDIR=#{CREW_DEST_DIR}", "install"          # remember to include DESTDIR set to CREW_DEST_DIR - needed to keep track of changes made to system
+    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"          # remember to include DESTDIR set to CREW_DEST_DIR - needed to keep track of changes made to system
   end         
 end
