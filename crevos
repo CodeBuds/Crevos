@@ -426,7 +426,7 @@ when "uninstall-all"
 when "reinstall-all"
   crevos_uninstall
   system "chmod +x " + CREVOS_COM_PATH
-  system "wget -q -O - https://raw.github.com/smerkousdavid/Crevos/master/install.sh | bash"
+  system "wget -q -O - https://raw.github.com/CodeBuds/Crevos/master/install.sh | bash"
   system "chmod +x " + CREVOS_COM_PATH
 when nil
   puts "Crevos, version 0.0.59"
