@@ -16,6 +16,6 @@ class Diffutils < Package
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREW_DEST_DIR}", "install"
+    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
   end
 end
