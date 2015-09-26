@@ -1,6 +1,6 @@
 require 'package'
 
-class Xorgserv < Package
+class Xterm < Package
   version '0.1.1'
   source_url 'ftp://invisible-island.net/xterm/xterm-320.tgz'
   source_sha1 '0d7f0e6390d132ae59876b3870e5783d'
