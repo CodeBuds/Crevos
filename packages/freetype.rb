@@ -8,7 +8,7 @@ class Freetype < Package
   depends_on 'buildessential'
 
   def self.build
-    system "sed -i  -e "/AUX.*.gxvalid/s@^# @@" -e "/AUX.*.otvalid/s@^# @@" modules.cfg && sed -ri -e 's:.*(#.*SUBPIXEL.*) .*:\1:' include/config/ftoption.h && ./configure --prefix=/usr --disable-static"
+    system "sed -i  -e \"/AUX.*.gxvalid/s@^# @@" -e "/AUX.*.otvalid/s@^# @@\" modules.cfg && sed -ri -e 's:.*(#.*SUBPIXEL.*) .*:\1:' include/config/ftoption.h && ./configure --prefix=/usr --disable-static"
     system "make"
   end
 
