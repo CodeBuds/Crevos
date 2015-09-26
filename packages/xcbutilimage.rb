@@ -1,6 +1,6 @@
 require 'package'
 
-class Xfonts < Package
+class Xcbutilimage < Package
   version '0.1.1'
   source_url 'http://xcb.freedesktop.org/dist/xcb-util-image-0.4.0.tar.bz2'
   source_sha1 '08fe8ffecc8d4e37c0ade7906b3f4c87'
