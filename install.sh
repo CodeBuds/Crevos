@@ -144,28 +144,10 @@ wget -N --continue --no-check-certificate $URL/packages/gtk.rb
 wget -N --continue --no-check-certificate $URL/packages/utilmacros.rb
 wget -N --continue --no-check-certificate $URL/packages/libxau.rb
 #install readline for ruby
-(echo y;) | crevos install readline
+(echo y;) | | crevos install readline
 
 #install git
-(echo y;) | crevos install git
-
-#prepare sparse checkout .rb packages directory and do it
-cd $CLIB
-git init
-git remote add -f origin https://github.com/CodeBuds/Crevos.git
-git config core.sparsecheckout true
-echo packages >> .git/info/sparse-checkout
-echo lib >> .git/info/sparse-checkout
-echo crevos >> .git/info/sparse-checkout
-git fetch origin master 
-git reset --hard origin/master
-echo "Crevos has been installed (ALPHA TO THE BETA TO THE ALPHA)..."
-echo "So see if you can run something graphical"
-
-cd $CBIN
-chmod +x crevos
-chmod +x crevos-uninstall
-chmod +x crevos-reinstall
+(echo y;) | | crevos install git
 
 #install nano
 echo "Installing nano"
@@ -183,7 +165,7 @@ sleep 1
 
 echo ""
 echo "Installing GNOME > Gtk..."
-(echo y;) crevos install gtk
+(echo y;) | crevos install gtk
 echo "Gtk install finished"
 echo ""
 
@@ -201,7 +183,7 @@ export XORG_PREFIX XORG_CONFIG
 EOF
 chmod 644 /etc/profile.d/xorg.sh
 #install util macros
-(echo y;) crevos install utilmacros
+(echo y;) | crevos install utilmacros
 cat > proto-7.7.md5 << "EOF"
 1a05fb01fa1d5198894c931cf925c025  bigreqsproto-1.1.2.tar.bz2
 98482f65ba1e74a08bf5b056a4031ef0  compositeproto-0.4.2.tar.bz2
@@ -232,10 +214,10 @@ e793ecefeaecfeabd1aed6a01095174e  xf86vidmodeproto-2.3.1.tar.bz2
 EOF
 sudo mkdir proto && cd proto && sudo grep -v '^#' ../proto-7.7.md5 | awk '{print $2}' | wget -i- -c \
     -B http://ftp.x.org/pub/individual/proto/ && sudo md5sum -c ../proto-7.7.md5
-(echo y;) crevos install libxau
-(echo y;) crevos install libxdmcp
-(echo y;) crevos install xcbproto
-(echo y;) crevos install libxcb
+(echo y;) | crevos install libxau
+(echo y;) | crevos install libxdmcp
+(echo y;) | crevos install xcbproto
+(echo y;) | crevos install libxcb
 echo "Trying to install graphical libraries"
 sudo cat > lib-7.7.md5 << "EOF"
 c5ba432dd1514d858053ffe9f4737dd8  xtrans-1.3.5.tar.bz2
@@ -275,12 +257,12 @@ sudo mkdir lib && cd lib &&
 sudo grep -v '^#' ../lib-7.7.md5 | awk '{print $2}' | wget -i- -c \
     -B http://ftp.x.org/pub/individual/lib/ &&
 sudo md5sum -c ../lib-7.7.md5
-(echo y;) crevos install xcbutil
-(echo y;) crevos install xcbutilimage
-(echo y;) crevos install xcbutilkeysyms
-(echo y;) crevos install xcbutilrender
-(echo y;) crevos install xcbutilwm
-(echo y;) crevos install freetype
+(echo y;) | crevos install xcbutil
+(echo y;) | crevos install xcbutilimage
+(echo y;) | crevos install xcbutilkeysyms
+(echo y;) | crevos install xcbutilrender
+(echo y;) | crevos install xcbutilwm
+(echo y;) | crevos install freetype
 wget -N --continue --no-check-certificate "http://www.linuxfromscratch.org/patches/blfs/svn/mesa-10.6.6-llvm_3_7-1.patch"
 patch -Np1 -i ../mesa-10.6.6-llvm_3_7-1.patch &&
 GLL_DRV="nouveau,r300,r600,radeonsi,svga,swrast" &&
@@ -298,7 +280,7 @@ GLL_DRV="nouveau,r300,r600,radeonsi,svga,swrast" &&
             --with-gallium-drivers=$GLL_DRV &&
 unset GLL_DRV &&
 make
-(echo y;) crevos install xbitmaps
+(echo y;) | crevos install xbitmaps
 sudo cat > app-7.7.md5 << "EOF"
 53a48e1fdfec29ab2e89f86d4b7ca902  bdftopcf-1.0.5.tar.bz2
 25dab02f8e40d5b71ce29a07dc901b8c  iceauth-1.0.7.tar.bz2
@@ -344,7 +326,7 @@ cd app &&
 sudo grep -v '^#' ../app-7.7.md5 | awk '{print $2}' | wget -i- -c \
     -B http://ftp.x.org/pub/individual/app/ &&
 sudo md5sum -c ../app-7.7.md5
-(echo y;) crevos install xcursor
+(echo y;) | crevos install xcursor
 sudo cat > font-7.7.md5 << "EOF"
 23756dab809f9ec5011bb27fb2c3c7d6  font-util-1.3.1.tar.bz2
 0f2d6546d514c5cc4ecf78a60657a5c1  encodings-1.0.4.tar.bz2
@@ -389,7 +371,25 @@ cd font &&
 sudo grep -v '^#' ../font-7.7.md5 | awk '{print $2}' | wget -i- -c \
     -B http://ftp.x.org/pub/individual/font/ &&
 sudo md5sum -c ../font-7.7.md5
-(echo y;) crevos install xkeyboardconf
-(echo y;) crevos install xorgserver
-(echo y;) crevos install libevdev
-(echo y;) crevos install twm
+(echo y;) | crevos install xkeyboardconf
+(echo y;) | crevos install xorgserver
+(echo y;) | crevos install libevdev
+(echo y;) | crevos install twm
+
+#prepare sparse checkout .rb packages directory and do it
+cd $CLIB
+git init
+git remote add -f origin https://github.com/CodeBuds/Crevos.git
+git config core.sparsecheckout true
+echo packages >> .git/info/sparse-checkout
+echo lib >> .git/info/sparse-checkout
+echo crevos >> .git/info/sparse-checkout
+git fetch origin master 
+git reset --hard origin/master
+echo "Crevos has been installed (ALPHA TO THE BETA TO THE ALPHA)..."
+echo "So see if you can run something graphical"
+
+cd $CBIN
+chmod +x crevos
+chmod +x crevos-uninstall
+chmod +x crevos-reinstall
