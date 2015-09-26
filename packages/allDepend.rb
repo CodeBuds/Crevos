@@ -11,6 +11,7 @@ class AllDepend < Package
   depends_on 'binutils'
   depends_on 'curl'
   depends_on 'expat'
+  depends_on 'pkgconfig'
   depends_on 'gmp'
   depends_on 'mpc'
   depends_on 'mpfr'
