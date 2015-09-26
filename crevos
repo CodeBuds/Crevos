@@ -327,14 +327,6 @@ def remove
     end
   end
 
-def updategrade
-  system "sudo chmod +x " + CREVOS_COM_PATH
-  update
-  system "sudo chmod +x " + CREVOS_COM_PATH
-  upgrade
-  system "sudo chmod +x " + CREVOS_COM_PATH
-end
-
 def reinstall
   system "sudo chmod +x " + CREVOS_COM_PATH
   remove
@@ -418,7 +410,10 @@ when "remove"
   remove
   system "sudo chmod +x " + CREVOS_COM_PATH
 when "updategrade"
-  updategrade
+  system "sudo chmod +x " + CREVOS_COM_PATH
+  update
+  system "sudo chmod +x " + CREVOS_COM_PATH
+  upgrade
   system "sudo chmod +x " + CREVOS_COM_PATH
 when "uninstall-all"
   crevos_uninstall
