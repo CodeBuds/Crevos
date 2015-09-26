@@ -1,0 +1,28 @@
+require 'package'
+
+class AllDepend < Package
+  version '1.1'
+  is_fake
+  depends_on 'gcc'
+  depends_on 'ruby'
+  depends_on 'make'
+  depends_on 'buildessentails'
+  depends_on 'linuxheaders'
+  depends_on 'binutils'
+  depends_on 'curl'
+  depends_on 'expat'
+  depends_on 'gmp'
+  depends_on 'mpc'
+  depends_on 'mpfr'
+  depends_on 'glibc'
+  depends_on 'gettext'
+  depends_on 'zlibpkg'
+  depends_on 'libssh2'
+  depends_on 'perl'
+  depends_on 'python'
+  depends_on 'git'
+  depends_on 'glibc'
+  depends_on 'libssh2'
+  depends_on 'linuxheaders'
+  depends_on 'readline'
+end
