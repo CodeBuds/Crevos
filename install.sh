@@ -90,8 +90,7 @@ sudo chmod +x crevos-reinstall
 chmod +x crevos-reinstall
 sudo ln -s `pwd`/crevos-reinstall $CPREFIX/bin
 #install crevos library
-mkdir $CLIB/lib && cd $CPREFIX/bin
-cd /usr/local/bin/
+mkdir $CLIB/lib && cd $CBIN
 wget -N --continue --no-check-certificate $URL/lib/package.rb
 wget -N --continue --no-check-certificate $URL/lib/package_helpers.rb
 
