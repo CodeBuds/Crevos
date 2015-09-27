@@ -6,9 +6,7 @@ class Cairo < Package
   source_sha1 'e1cdfaf1c6c995c4d4c54e07215b0118'
 
   def self.build
-    system "sudo ./configure --prefix=/usr    \
-            --disable-static \
-            --enable-tee"
+    system "sudo ./configure --prefix=/usr --disable-static --enable-tee --libdir=/usr/local/lib64/ CC=\"gcc -m64\" CFLAGS=\" -fPIC\""
     system "sudo make"
   end
 
