@@ -78,10 +78,10 @@ echo "Get ready for the cool part, Installing graphical dependencies"
 echo ""
 echo "Installing Package Config..."
 (echo y;) | crevos install glibc
+(echo y;) | crevos install atk
+(echo y;) | crevos install pango
 (echo y;) | crevos install freetype
 (echo y;) | crevos install fontconfig
-(echo y;) | crevos install pango
-(echo y;) | crevos install atk
 (echo y;) | crevos install libicon
 (echo y;) | crevos install libffi
 (echo y;) | crevos install cairo
