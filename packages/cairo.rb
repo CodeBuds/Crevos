@@ -1,6 +1,6 @@
 require 'package'
 
-class Cario < Package
+class Cairo < Package
   version '1.14.2'
   source_url 'http://cairographics.org/releases/cairo-1.14.2.tar.xz'
   source_sha1 'e1cdfaf1c6c995c4d4c54e07215b0118'
