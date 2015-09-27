@@ -12,6 +12,6 @@ class Pango < Package
   
   def self.install
     system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
-    #system "sudo pango-querymodules --update-cache"
+    system "sudo pango-querymodules --update-cache"
   end
 end
