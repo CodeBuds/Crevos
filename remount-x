@@ -57,6 +57,3 @@ done
   * ) echo "Sorry didn't understand that :'(";; 
   esac
   exit
-  
-#okay finished
-
