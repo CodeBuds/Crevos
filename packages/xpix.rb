@@ -10,11 +10,11 @@ class Xpix < Package
   depends_on 'pkgconfig'
 
   def self.build
-    system "./configure --prefix=/usr --disable-static"
-    system "make"
+    system "sudo ./configure --prefix=/usr --disable-static"
+    system "sudo make"
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
+    system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
   end
 end
