@@ -21,9 +21,8 @@ This is a public repo, but mostly made for a private event for our school, if wa
 ####Contact
 If you can help/give some input please use these contact methods</br>
 David Smerkous:(Email) smerkousdavid@gmail.com</br>
-               (Phone) 801-425-1681</br>
-Eli Smith:(INFO) BLANK</br>
-Other Info
+               
+Eli Smith:(Email) plunkinguitar@gmail.com</br>
 ------------
 
   A lot of this is pre-made by skycocker, but pushing the new packages through chromebrew, was quite annoying for me, as in I wanted to have more access to the filesys without requesting for permission for every commit, this was made for school so if you want a general (As in not package/chromebook more specific kind of packages) got to chromebrew for better/probably better updated options, so we created a seperate repo, and are trying to get applications like, Arduino, Netlogo, etc... running graphically for chromebooks without crouton, To give credit for the base of Crevos here is chromebrew</br>
