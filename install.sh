@@ -202,4 +202,4 @@ echo "Attempting to remount..."
 echo ""
 
 cd $CLIB/xc
-sudo sh remount-x.sh
+./remount-x.sh
