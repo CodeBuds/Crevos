@@ -5,8 +5,6 @@ class Xcbutil < Package
   source_url 'http://xcb.freedesktop.org/dist/xcb-util-0.4.0.tar.bz2'
   source_sha1 '2e97feed81919465a04ccc71e4073313'
 
-  depends_on 'buildessential'
-
   def self.build
     system "./configure $XORG_CONFIG"
     system "make"
