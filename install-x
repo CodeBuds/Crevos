@@ -77,15 +77,15 @@ fi
 
 echo "The problem here is that we can't just randomly change deep system files"
 echo "we will need to remount the user filesystem so we can edit the X11 settings"
-
-while true; do
-  read -p "Have you mounted and rebooted your syetem to read and write yet? [y/n]" ynn
-  case $ynn in
-  [yY]* ) runs;break;;
-  [nN]* ) break;;
-  * ) echo "Please type y or n";; 
-  esac
-done
+echo ""
+echo "If you select something besides no, program will exit..."
+echo ""
+read -p "Have you mounted and rebooted your syetem to read and write yet? [y/n]" ynn
+case $ynn in
+[yY]* ) runs;;
+[nN]* );;
+* ) exit;; 
+esac
 
 echo 'Attempting to install X'
 sleep 2
@@ -128,18 +128,18 @@ sleep 1
 
 echo "Installing X Windows manager... Will take a long time, so sit back and relax"
 cd $X11_PREFIX
-mkdir xc && cd xc
-export XORG_PREFIX = "$X11_PREFIX"
+sudo mkdir xc && cd xc
+export XORG_PREFIX="$X11_PREFIX"
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
 sudo cat > /etc/profile.d/xorg.sh << "EOF"
 XORG_PREFIX="/usr"
 XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
 export XORG_PREFIX XORG_CONFIG
 EOF
-chmod 644 /etc/profile.d/xorg.sh
+sudo chmod 644 /etc/profile.d/xorg.sh
 #install util macros
 (echo y;) | crevos install utilmacros
-cat > proto-7.7.md5 << "EOF"
+sudo cat > proto-7.7.md5 << "EOF"
 1a05fb01fa1d5198894c931cf925c025  bigreqsproto-1.1.2.tar.bz2
 98482f65ba1e74a08bf5b056a4031ef0  compositeproto-0.4.2.tar.bz2
 998e5904764b82642cc63d97b4ba9e95  damageproto-1.2.1.tar.bz2
