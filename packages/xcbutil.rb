@@ -6,11 +6,11 @@ class Xcbutil < Package
   source_sha1 '2e97feed81919465a04ccc71e4073313'
 
   def self.build
-    system "./configure $XORG_CONFIG"
-    system "make"
+    system "sudo ./configure $XORG_CONFIG"
+    system "sudo make"
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
+    system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
   end
 end
