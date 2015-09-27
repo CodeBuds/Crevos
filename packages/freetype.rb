@@ -11,6 +11,6 @@ class Freetype < Package
   end
 
   def self.install
-    system "sudo make", "DESTDIR=#{CREW_DEST_DIR}", "install && sudo install -v -m755 -d /usr/share/doc/freetype-2.6 && cp -v -R docs/*     /usr/share/doc/freetype-2.6"
+    system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install && sudo install -v -m755 -d /usr/share/doc/freetype-2.6 && cp -v -R docs/*     /usr/share/doc/freetype-2.6"
   end
 end
