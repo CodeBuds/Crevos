@@ -6,6 +6,7 @@ class Gtk < Package
   source_sha1 'ce617318fe18092383cf6ed5d8c688a95a97f2d4c68481317a6a531e288c26ea'
   
   depends_on 'pkgconfig'
+  depends_on 'pango'
   
   def self.build
     system "./configure --prefix=/opt/gtk"
