@@ -15,7 +15,7 @@ class Xlibpng < Package
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREW_DEST_DIR}", "install"
+    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
     system "mkdir -v /usr/share/doc/libpng-1.6.18 && cp -v README libpng-manual.txt /usr/share/doc/libpng-1.6.18"
   end
 end
