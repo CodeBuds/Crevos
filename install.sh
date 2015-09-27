@@ -198,7 +198,8 @@ chmod +x crevos
 chmod +x crevos-uninstall
 chmod +x crevos-reinstall
 
-"Attempting to remount..."
+echo "Attempting to remount..."
+echo ""
 
 cd $CLIB/xc
-sudo sh remount.sh
+sudo sh remount-x.sh
