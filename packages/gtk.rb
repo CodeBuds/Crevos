@@ -8,11 +8,11 @@ class Gtk < Package
   depends_on 'pkgconfig'
   
   def self.build
-    system "./configure --with-internal-glib --libdir=/usr/local/lib64/ CC=\"gcc -m64\" CFLAGS=\" -fPIC\""
-    system "make"
+    system "./configure --prefix=/opt/gtk"
+    system "sudo make"
   end
   
   def self.install
-    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
+    system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
   end
 end
