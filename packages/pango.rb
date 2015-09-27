@@ -6,14 +6,12 @@ class Pango < Package
   source_sha1 '1d4e75974bad853ee9ac5fc5caee5e7ab235abbd945d51d01f3806e04e7c226c'
   
   def self.build
-    system "./configure --prefix=/usr/ --sysconfdir=/etc"
+    system "sudo ./configure"
     system "sudo make"
   end
   
   def self.install
     system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
-    system "sudo pango-querymodules --update-cache"
+    #system "sudo pango-querymodules --update-cache"
   end
 end
-
-#pango
