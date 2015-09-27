@@ -6,7 +6,7 @@ class Atk < Package
   source_sha1 'ce6c48d77bf951083029d5a396dd552d836fff3c1715d3a7022e917e46d0c92b'
   
   def self.build
-    system "sudo ./configure"
+    system "sudo ./configure --libdir=/usr/local/lib64/ CC=\"gcc -m64\" CFLAGS=\" -fPIC\""
     system "sudo make"
   end
   
