@@ -197,6 +197,3 @@ cd $CBIN
 chmod +x crevos
 chmod +x crevos-uninstall
 chmod +x crevos-reinstall
-
-echo "Attempting to remount..."
-echo ""
