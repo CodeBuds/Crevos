@@ -62,11 +62,34 @@ wget -N --continue --no-check-certificate $URL/packages/libevdev.rb
 wget -N --continue --no-check-certificate $URL/packages/fontconfig.rb
 wget -N --continue --no-check-certificate $URL/packages/jdk8.rb
 wget -N --continue --no-check-certificate $URL/packages/xterm.rb
+wget -N --continue --no-check-certificate $URL/packages/glibc.rb
+wget -N --continue --no-check-certificate $URL/packages/pango.rb
+wget -N --continue --no-check-certificate $URL/packages/atk.rb
+wget -N --continue --no-check-certificate $URL/packages/libicon.rb
+wget -N --continue --no-check-certificate $URL/packages/gettext.rb
+wget -N --continue --no-check-certificate $URL/packages/wayland.rb
+wget -N --continue --no-check-certificate $URL/packages/libepoxy.rb
+wget -N --continue --no-check-certificate $URL/packages/libffi.rb
+wget -N --continue --no-check-certificate $URL/packages/cairo.rb
+wget -N --continue --no-check-certificate $URL/packages/libpng.rb
 sleep 1 
 
 echo "Get ready for the cool part, Installing graphical dependencies"
 echo ""
 echo "Installing Package Config..."
+(echo y;) | crevos install glibc
+(echo y;) | crevos install freetype
+(echo y;) | crevos install fontconfig
+(echo y;) | crevos install pango
+(echo y;) | crevos install atk
+(echo y;) | crevos install libicon
+(echo y;) | crevos install libffi
+(echo y;) | crevos install cairo
+(echo y;) | crevos install xpix
+(echo y;) | crevos install libpng
+(echo y;) | crevos install wayland
+(echo y;) | crevos install libepoxy
+(echo y;) | crevos install gettext
 (echo y;) | crevos install pkgconfig
 echo "Package Config install finished"
 
@@ -129,8 +152,6 @@ sudo mkdir proto && cd proto && sudo grep -v '^#' ../proto-7.7.md5 | awk '{print
 (echo y;) | crevos install libxdmcp
 (echo y;) | crevos install xcbproto
 (echo y;) | crevos install libxcb
-(echo y;) | crevos install xpix
-(echo y;) | crevos install fontconfig
 (echo y;) | crevos install jdk8
 echo "Trying to install graphical libraries"
 cd $X11_PATH
@@ -177,7 +198,6 @@ sudo md5sum -c ../lib-7.7.md5
 (echo y;) | crevos install xcbutilkeysyms
 (echo y;) | crevos install xcbutilrender
 (echo y;) | crevos install xcbutilwm
-(echo y;) | crevos install freetype
 wget -N --continue --no-check-certificate "http://www.linuxfromscratch.org/patches/blfs/svn/mesa-10.6.6-llvm_3_7-1.patch"
 patch -Np1 -i ../mesa-10.6.6-llvm_3_7-1.patch &&
 GLL_DRV="nouveau,r300,r600,radeonsi,svga,swrast" &&
