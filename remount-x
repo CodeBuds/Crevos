@@ -38,22 +38,6 @@ done
   echo ""
   
   read -p "Please enter (The number nothing else (ex: 2)) the number of the partition N above: " an
- if [ $(echo $an | tr -d '[:digit:]') ]; then
-     echo "ERROR: Not a number..."
-     echo "Remember what I said to be careful"
-     echo "Now you have 2 choices, either reinstall this script"
-     echo "OR"
-     echo "type in these (to finish) commands"
-     echo ""
-     echo "sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification"
-     echo "sudo crossystem dev_boot_signed_only=0"
-     echo "sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions N (Replace N with number)"
-     echo "sudo mount -o remount,rw /"
-     echo "sudo reboot (This will reboot your system)"
-     echo "(After you reboot run this command)"
-     echo "install-x"
-     exit
-  fi
   sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions $an
   sudo crossystem dev_boot_signed_only=0
   sudo mount -o remount,rw /
