@@ -201,5 +201,5 @@ chmod +x crevos-reinstall
 echo "Attempting to remount..."
 echo ""
 
-cd $CLIB/xc
-./remount-x.sh
+(echo y;) | crevos remount-x
+(echo y;) | crevos install-x
