@@ -373,8 +373,12 @@ when "search"
   end
   system "sudo chmod +x " + CREVOS_COM_PATH
 when "download"
+if @pkgName
   search @pkgName
   download
+else
+  puts "Package name is blank, please insert package name"
+end
   system "sudo chmod +x " + CREVOS_COM_PATH
 when "reinstall"
   reinstall
@@ -397,13 +401,21 @@ when "upgrade"
   upgrade
   system "sudo chmod +x " + CREVOS_COM_PATH
 when "install"
+if @pkgName
   search @pkgName
   resolveDependenciesAndInstall
+else
+  puts "Package name is blank, please insert package name"
+end
   system "sudo chmod +x " + CREVOS_COM_PATH
 when "remove"
-  abort 'Removing actions must be ran with sudo.' unless USER == 'root'
+abort 'Removing actions must be ran with sudo.' unless USER == 'root'
+if @pkgName
   search @pkgName
   remove
+else
+  puts "Package name is blank, please insert package name"
+end
   system "sudo chmod +x " + CREVOS_COM_PATH
 when "updategrade"
   system "sudo chmod +x " + CREVOS_COM_PATH
