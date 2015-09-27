@@ -206,10 +206,9 @@ echo "If you select something besides no, program will exit..."
 echo "If you select yes or put some other character, (if not already) continue installation using install-x"
 echo "Fyi don't but 'crevos install-x' just 'install-x' (Without apos.)"
 echo ""
-read -p "Have you mounted and rebooted your syetem to read and write yet? [y/n]" ynn
-if [[ $ynn = Y || $ynn = y) || ($ynn != N && $ynn != n) ]]; then
-  exit 1
-fi
+echo "Have you mounted and rebooted your syetem to read and write yet"
+echo "Press Ctrl+Z to quit, if you have already mounted and rebooted your system before"
+sleep 5
   echo "Please be ready to anwser system settings questions, so that we can proceed"
   sleep 3
   sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification
