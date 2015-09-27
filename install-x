@@ -51,7 +51,7 @@ wget -N --continue --no-check-certificate $URL/packages/xbitmaps.rb
 wget -N --continue --no-check-certificate $URL/packages/xcbproto.rb
 wget -N --continue --no-check-certificate $URL/packages/xcbutil.rb
 wget -N --continue --no-check-certificate $URL/packages/xcbutilimage.rb
-wget -N --continue --no-check-certificate $URL/packages/xcbutilkeysysms.rb
+wget -N --continue --no-check-certificate $URL/packages/xcbutilkeysyms.rb
 wget -N --continue --no-check-certificate $URL/packages/xcbutilrender.rb
 wget -N --continue --no-check-certificate $URL/packages/xcbutilwm.rb
 wget -N --continue --no-check-certificate $URL/packages/xcursor.rb
@@ -94,7 +94,7 @@ sleep 1
 
 echo "Installing X Windows manager... Will take a long time, so sit back and relax"
 cd $X11_PREFIX
-sudo mkdir xc && cd xc
+mkdir xc && cd xc
 export XORG_PREFIX = "$X11_PREFIX"
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
 sudo cat > /etc/profile.d/xorg.sh << "EOF"
