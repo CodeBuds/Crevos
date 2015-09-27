@@ -80,8 +80,8 @@ if [$GOING = 0]; then
   case $ny in
   [yY]* ) sudo reboot;;
   [nN]* ) exit;;
-  * ) echo "Sorry didn't understand: $ny";; 
-  done
+  * ) echo "Sorry didn't understand that :'(";; 
+  esac
 fi
 
 echo 'Attempting to install X'
