@@ -336,18 +336,6 @@ def reinstall
   resolveDependenciesAndInstall
 end
 
-def helps
-  puts "Available commands .Arg amount."
-  puts "  download .1."
-  puts "  reinstall .1."
-  puts "  search .1."
-  puts "  update .1."
-  puts "  upgrade .1."
-  puts "  updategrade .0."
-  puts "  help .0."
-  puts "done"
-end
-
 def uninstall
   if "all" == @pkgName
     system "sudo rm " + CREVOS_COM_PATH
@@ -392,7 +380,15 @@ when "reinstall"
   reinstall
   system "sudo chmod +x " + CREVOS_COM_PATH
 when "help"
-  helps
+  puts "Available commands .Arg amount."
+  puts "  download .1."
+  puts "  reinstall .1."
+  puts "  search .1."
+  puts "  update .1."
+  puts "  upgrade .1."
+  puts "  updategrade .0."
+  puts "  help .0."
+  puts "done"
   system "sudo chmod +x " + CREVOS_COM_PATH
 when "update"
   update
@@ -430,7 +426,7 @@ when "reinstall-all"
   system "wget -q -O - https://raw.github.com/CodeBuds/Crevos/master/install.sh | bash"
   system "sudo chmod +x " + CREVOS_COM_PATH
 when nil
-  puts "Crevos, version 0.0.59"
+  puts "Crevos, version 1.4.245"
   puts "Usage: crevos [command] [package]"
   puts "Available commands: search, download, install, remove, help, updategrade, reinstall"
   system "sudo chmod +x " + CREVOS_COM_PATH
