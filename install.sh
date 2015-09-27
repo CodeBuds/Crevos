@@ -200,6 +200,3 @@ chmod +x crevos-reinstall
 
 echo "Attempting to remount..."
 echo ""
-
-(echo y;) | crevos remount-x
-(echo y;) | crevos install-x
