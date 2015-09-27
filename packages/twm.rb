@@ -6,10 +6,10 @@ class Twm < Package
   source_sha1 '59a6f076cdacb5f6945dac809bcf4906'
 
   def self.build
-    system "sed -i -e '/^rcdir =/s,^\(rcdir = \).*,\1/etc/X11/app-defaults,' src/Makefile.in && ./configure $XORG_CONFIG && make"
+    system "sudo sed -i -e '/^rcdir =/s,^\(rcdir = \).*,\1/etc/X11/app-defaults,' src/Makefile.in && ./configure $XORG_CONFIG && make"
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREW_DEST_DIR}", "install"
+    system "sudo make", "DESTDIR=#{CREW_DEST_DIR}", "install"
   end
 end
