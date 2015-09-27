@@ -11,6 +11,6 @@ class Xterm < Package
   end
 
   def self.install
-    system "sudo make", "DESTDIR=#{CREW_DEST_DIR}", "install && make install-ti"
+    system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install && make install-ti"
   end
 end
