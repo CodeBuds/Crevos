@@ -10,7 +10,6 @@ CCONFIG=$CPREFIX/etc/crevos/
 CBREW=$CPREFIX/tmp/crevos/
 CDEST=$CBREW/dest
 CPACKAGES=$CLIB/packages
-GOING=0
 X11_PREFIX=/usr
 X11_PATH=$X11_PREFIX/xc
 
@@ -22,39 +21,6 @@ echo ""
 echo ""
 
 sleep 1
-
-runs()
-{
-  echo "Please be ready to anwser system settings questions, so that we can proceed"
-  sleep 3
-  sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification
-  sudo crossystem dev_boot_signed_only=0
-  sleep 1
-  echo ""
-  echo ""
-  echo "I just ran a script to modify your kernel, so I can access system directories..."
-  echo "The above command I just ran said 'Try running the script with ...... --partitions N'"
-  echo ""
-  echo ""
-  read -p "Please enter (The number nothing else ex: 2) the number of the partition N above: " an
-  re='^[0-9]+$'
-  if ! [[ $an =~ $re ]] ; then
-     echo "error: Not a number... restart amazing script with install-x" >&2; exit 1
-  fi
-  sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions $an
-  sudo crossystem dev_boot_signed_only=0
-  sudo mount -o remount,rw /
-  echo "Succesful remount of system, now the rest of the script should run with little warnings besides"
-  echo "That this isn't a officialy supported device (Luckily we have been able to fix that)"
-  read -p "You need to reboot, do you want to now? [y/n]" ny
-  sleep 1
-  case $ny in
-  [yY]* ) sudo reboot;;
-  [nN]* ) exit;;
-  * ) echo "Sorry didn't understand that :'(";; 
-  esac
-}
-
 
 while true; do
   read -p "Do you want to install X for chromebooks, this was developed by 2 highschool students? [y/n]" yn
@@ -74,18 +40,6 @@ if [ $architecture != "i686" ] && [ $architecture != "x86_64" ]; then
   echo 'exiting...'
   exit 1;
 fi
-
-echo "The problem here is that we can't just randomly change deep system files"
-echo "we will need to remount the user filesystem so we can edit the X11 settings"
-echo ""
-echo "If you select something besides no, program will exit..."
-echo ""
-read -p "Have you mounted and rebooted your syetem to read and write yet? [y/n]" ynn
-case $ynn in
-[yY]* ) runs;;
-[nN]* );;
-* ) exit;; 
-esac
 
 echo 'Attempting to install X'
 sleep 2
@@ -125,11 +79,12 @@ echo "Gtk install finished"
 echo ""
 
 sleep 1
+cd /
 
 echo "Installing X Windows manager... Will take a long time, so sit back and relax"
 cd $X11_PREFIX
 sudo mkdir xc && cd xc
-export XORG_PREFIX="$X11_PREFIX"
+export XORG_PREFIX="$X11_PATH"
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
 sudo cat > /etc/profile.d/xorg.sh << "EOF"
 XORG_PREFIX="/usr"
@@ -139,6 +94,7 @@ EOF
 sudo chmod 644 /etc/profile.d/xorg.sh
 #install util macros
 (echo y;) | crevos install utilmacros
+cd $X11_PATH
 sudo cat > proto-7.7.md5 << "EOF"
 1a05fb01fa1d5198894c931cf925c025  bigreqsproto-1.1.2.tar.bz2
 98482f65ba1e74a08bf5b056a4031ef0  compositeproto-0.4.2.tar.bz2
@@ -177,6 +133,7 @@ sudo mkdir proto && cd proto && sudo grep -v '^#' ../proto-7.7.md5 | awk '{print
 (echo y;) | crevos install fontconfig
 (echo y;) | crevos install jdk8
 echo "Trying to install graphical libraries"
+cd $X11_PATH
 sudo cat > lib-7.7.md5 << "EOF"
 c5ba432dd1514d858053ffe9f4737dd8  xtrans-1.3.5.tar.bz2
 2e36b73f8a42143142dda8129f02e4e0  libX11-1.6.3.tar.bz2
@@ -239,6 +196,7 @@ GLL_DRV="nouveau,r300,r600,radeonsi,svga,swrast" &&
 unset GLL_DRV &&
 make
 (echo y;) | crevos install xbitmaps
+cd $X11_PATH
 sudo cat > app-7.7.md5 << "EOF"
 53a48e1fdfec29ab2e89f86d4b7ca902  bdftopcf-1.0.5.tar.bz2
 25dab02f8e40d5b71ce29a07dc901b8c  iceauth-1.0.7.tar.bz2
@@ -285,6 +243,7 @@ sudo grep -v '^#' ../app-7.7.md5 | awk '{print $2}' | wget -i- -c \
     -B http://ftp.x.org/pub/individual/app/ &&
 sudo md5sum -c ../app-7.7.md5
 (echo y;) | crevos install xcursor
+cd $X11_PATH
 sudo cat > font-7.7.md5 << "EOF"
 23756dab809f9ec5011bb27fb2c3c7d6  font-util-1.3.1.tar.bz2
 0f2d6546d514c5cc4ecf78a60657a5c1  encodings-1.0.4.tar.bz2
@@ -334,4 +293,5 @@ sudo md5sum -c ../font-7.7.md5
 (echo y;) | crevos install libevdev
 (echo y;) | crevos install twm
 (echo y;) | crevos install xterm
+cd $X11_PATH
 echo "X capabilities are fully functional!"
