@@ -6,12 +6,12 @@ class Libsigsegv < Package
   source_sha1 'b75a647a9ebda70e7a3b33583efdd550e0eac094'
 
   def self.build
-    system "./configure --libdir=/usr/local/lib64/ CC=\"gcc -m64\" CFLAGS=\" -fPIC\""
-    system "make"
+    system "sudo ./configure --libdir=/usr/local/lib64/ CC=\"gcc -m64\" CFLAGS=\" -fPIC\""
+    system "sudo make"
   end
 
   def self.install
-    system "make check"
-    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
+    system "sudo make check"
+    system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
   end
 end
