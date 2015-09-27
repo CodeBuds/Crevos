@@ -77,27 +77,27 @@ sleep 1
 echo "Get ready for the cool part, Installing graphical dependencies"
 echo ""
 echo "Installing Package Config..."
-(echo y;) | crevos install glibc
-(echo y;) | crevos install atk
-(echo y;) | crevos install pango
-(echo y;) | crevos install freetype
-(echo y;) | crevos install fontconfig
-(echo y;) | crevos install libicon
-(echo y;) | crevos install libffi
-(echo y;) | crevos install cairo
-(echo y;) | crevos install xpix
-(echo y;) | crevos install libpng
-(echo y;) | crevos install wayland
-(echo y;) | crevos install libepoxy
-(echo y;) | crevos install gettext
-(echo y;) | crevos install pkgconfig
+(echo y;) | sudo crevos install glibc
+(echo y;) | sudo crevos install atk
+(echo y;) | sudo crevos install pango
+(echo y;) | sudo crevos install freetype
+(echo y;) | sudo crevos install fontconfig
+(echo y;) | sudo crevos install libicon
+(echo y;) | sudo crevos install libffi
+(echo y;) | sudo crevos install cairo
+(echo y;) | sudo crevos install xpix
+(echo y;) | sudo crevos install libpng
+(echo y;) | sudo crevos install wayland
+(echo y;) | sudo crevos install libepoxy
+(echo y;) | sudo crevos install gettext
+(echo y;) | sudo crevos install pkgconfig
 echo "Package Config install finished"
 
 sleep 1
 
 echo ""
 echo "Installing GNOME > Gtk..."
-(echo y;) | crevos install gtk
+(echo y;) | sudo crevos install gtk
 echo "Gtk install finished"
 echo ""
 
@@ -110,13 +110,13 @@ sudo mkdir xc && cd xc
 export XORG_PREFIX="$X11_PATH"
 export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
 sudo cat > /etc/profile.d/xorg.sh << "EOF"
-XORG_PREFIX="/usr"
+XORG_PREFIX="/usr/xc"
 XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
 export XORG_PREFIX XORG_CONFIG
 EOF
 sudo chmod 644 /etc/profile.d/xorg.sh
 #install util macros
-(echo y;) | sudo crevos install utilmacros
+(echo y;) | sudo sudo crevos install utilmacros
 cd $X11_PATH
 sudo cat > proto-7.7.md5 << "EOF"
 1a05fb01fa1d5198894c931cf925c025  bigreqsproto-1.1.2.tar.bz2
@@ -148,11 +148,11 @@ e793ecefeaecfeabd1aed6a01095174e  xf86vidmodeproto-2.3.1.tar.bz2
 EOF
 sudo mkdir proto && cd proto && sudo grep -v '^#' ../proto-7.7.md5 | awk '{print $2}' | wget -i- -c \
     -B http://ftp.x.org/pub/individual/proto/ && sudo md5sum -c ../proto-7.7.md5
-(echo y;) | crevos install libxau
-(echo y;) | crevos install libxdmcp
-(echo y;) | crevos install xcbproto
-(echo y;) | crevos install libxcb
-(echo y;) | crevos install jdk8
+(echo y;) | sudo crevos install libxau
+(echo y;) | sudo crevos install libxdmcp
+(echo y;) | sudo crevos install xcbproto
+(echo y;) | sudo crevos install libxcb
+(echo y;) | sudo crevos install jdk8
 echo "Trying to install graphical libraries"
 cd $X11_PATH
 sudo cat > lib-7.7.md5 << "EOF"
@@ -193,11 +193,11 @@ sudo mkdir lib && cd lib &&
 sudo grep -v '^#' ../lib-7.7.md5 | awk '{print $2}' | wget -i- -c \
     -B http://ftp.x.org/pub/individual/lib/ &&
 sudo md5sum -c ../lib-7.7.md5
-(echo y;) | crevos install xcbutil
-(echo y;) | crevos install xcbutilimage
-(echo y;) | crevos install xcbutilkeysyms
-(echo y;) | crevos install xcbutilrender
-(echo y;) | crevos install xcbutilwm
+(echo y;) | sudo crevos install xcbutil
+(echo y;) | sudo crevos install xcbutilimage
+(echo y;) | sudo crevos install xcbutilkeysyms
+(echo y;) | sudo crevos install xcbutilrender
+(echo y;) | sudo crevos install xcbutilwm
 wget -N --continue --no-check-certificate "http://www.linuxfromscratch.org/patches/blfs/svn/mesa-10.6.6-llvm_3_7-1.patch"
 patch -Np1 -i ../mesa-10.6.6-llvm_3_7-1.patch &&
 GLL_DRV="nouveau,r300,r600,radeonsi,svga,swrast" &&
@@ -215,7 +215,7 @@ GLL_DRV="nouveau,r300,r600,radeonsi,svga,swrast" &&
             --with-gallium-drivers=$GLL_DRV &&
 unset GLL_DRV &&
 make
-(echo y;) | crevos install xbitmaps
+(echo y;) | sudo crevos install xbitmaps
 cd $X11_PATH
 sudo cat > app-7.7.md5 << "EOF"
 53a48e1fdfec29ab2e89f86d4b7ca902  bdftopcf-1.0.5.tar.bz2
@@ -262,7 +262,7 @@ cd app &&
 sudo grep -v '^#' ../app-7.7.md5 | awk '{print $2}' | wget -i- -c \
     -B http://ftp.x.org/pub/individual/app/ &&
 sudo md5sum -c ../app-7.7.md5
-(echo y;) | crevos install xcursor
+(echo y;) | sudo crevos install xcursor
 cd $X11_PATH
 sudo cat > font-7.7.md5 << "EOF"
 23756dab809f9ec5011bb27fb2c3c7d6  font-util-1.3.1.tar.bz2
@@ -308,10 +308,10 @@ cd font &&
 sudo grep -v '^#' ../font-7.7.md5 | awk '{print $2}' | wget -i- -c \
     -B http://ftp.x.org/pub/individual/font/ &&
 sudo md5sum -c ../font-7.7.md5
-(echo y;) | crevos install xkeyboardconf
-(echo y;) | crevos install xorgserver
-(echo y;) | crevos install libevdev
-(echo y;) | crevos install twm
-(echo y;) | crevos install xterm
+(echo y;) | sudo crevos install xkeyboardconf
+(echo y;) | sudo crevos install xorgserver
+(echo y;) | sudo crevos install libevdev
+(echo y;) | sudo crevos install twm
+(echo y;) | sudo crevos install xterm
 cd $X11_PATH
 echo "X capabilities are fully functional!"
