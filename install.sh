@@ -68,7 +68,7 @@ case "$architecture" in
 esac
 
 #The above snippet just gets the url now we actually install it
-wget --continue --no-check-certificate --content-disposition $link -O $tarname
+wget --continue --no-check-certificate --content-disposition $link -O $tarname 2>&1 >/dev/null
 
 #Extract and install using the tar command which every linux system should have
 echo "Installing ruby Please wait..."
