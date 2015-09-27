@@ -13,6 +13,6 @@ class Libevdev < Package
   end
 
   def self.install
-    system "sudo make", "DESTDIR=#{CREW_DEST_DIR}", "install"
+    system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
   end
 end
