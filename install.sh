@@ -179,15 +179,6 @@ wget -N --continue --no-check-certificate $URL/packages/xterm.rb
 echo "Installing nano"
 (echo y;) | crevos install nano
 
-echo "Installing xterm"
-while true; do
-  read -p "Do you want to install X for chromebooks, it was developed by 2 highschool students? [y/n]" yn
-  case $yn in
-  [yY]* ) install-x; break;;
-  [nN]* ) break;;
-  * ) echo "Please type y or n";; 
-  esac
-done
 #prepare sparse checkout .rb packages directory and do it
 cd $CLIB
 git init
@@ -205,3 +196,13 @@ cd $CBIN
 chmod +x crevos
 chmod +x crevos-uninstall
 chmod +x crevos-reinstall
+
+echo "Installing xterm"
+while true; do
+  read -p "Do you want to install X for chromebooks, it was developed by 2 highschool students? [y/n]" yn
+  case $yn in
+  [yY]* ) install-x;;
+  [nN]* ) break;;
+  * ) echo "Please type y or n";; 
+  esac
+done
