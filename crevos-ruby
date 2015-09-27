@@ -1,0 +1,30 @@
+#!/bin/sh -e
+#Like cromebrew have the installation happen in the crew directory
+cd $CBREW
+
+#EXACLTY from crew because we do need ruby to run this don't we
+echo "Downloading Ruby"
+
+sleep 2
+
+case "$architecture" in
+"i686")
+  link='https://dl.dropboxusercontent.com/s/tufbuqcn80ubypx/ruby-2.0.0p247-chromeos-i686.tar.gz?token_hash=AAGu_5wuqZe2eDOkfL5oh4esQ8HAZJIvbMG7GplnQrSa3g&dl=1'
+  tarname='ruby-2.0.0p247-chromeos-'$architecture'.tar.gz'
+  ;;
+"x86_64")
+  link='https://dl.dropboxusercontent.com/s/3dw5ue5vhf5nj8k/ruby-2.0.0-p247-chromeos1-chromeos-x86_64.tar.gz?dl=1&token_hash=AAHYJ-WOExuc2f4mKN3pDHUOlTMnt3h-rBosLmYr2Gvy7w'
+  tarname='ruby-2.0.0-p247-chromeos1-chromeos-'$architecture'.tar.gz'
+  ;;
+esac
+
+#The above snippet just gets the url now we actually install it
+wget --continue --no-check-certificate --content-disposition $link -O $tarname
+
+#Extract and install using the tar command which every linux system should have
+echo "Installing ruby Please wait..."
+sudo tar -xf $tarname
+sudo cp -r ./usr/* /usr
+sudo mv ./dlist $CCONFIG/meta/ruby.directorylist
+sudo mv ./filelist $CCONFIG/meta/ruby.filelist
+#End of ruby installment
