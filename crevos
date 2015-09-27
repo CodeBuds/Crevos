@@ -419,11 +419,11 @@ when "uninstall-all"
   crevos_uninstall
   system "sudo chmod +x " + CREVOS_COM_PATH
 when "remount-x"
-  system "sudo chmod +x " + CREVOS_COM_PATH
-  system "cd /usr/local/lib/crevos && sudo sh remount-x.sh"
+  puts "crevos is using bash, and we need sh"
+  puts "try just using remount-x, instead of crevos remount-x"
 when "install-x"
-  system "sudo chmod +x " + CREVOS_COM_PATH
-  system "install-x"
+  puts "crevos is using bash, and we need sh"
+  puts "try just using install-x, instead of crevos install-x"
 when "reinstall-all"
   crevos_uninstall
   system "sudo chmod +x " + CREVOS_COM_PATH
