@@ -6,7 +6,7 @@ class Xterm < Package
   source_sha1 '0d7f0e6390d132ae59876b3870e5783d'
 
   def self.build
-    system "sed -i '/v0/{n;s/new:/new:kb=^?:/}' termcap && printf '\tkbs=\\177,\n' >> terminfo && TERMINFO=/usr/share/terminfo ./configure $XORG_CONFIG --with-app-defaults=/etc/X11/app-defaults"
+    system "sed -i '/v0/{n;s/new:/new:kb=^?:/}' termcap && printf '\\tkbs=\\\177,\\n' >> terminfo && TERMINFO=/usr/share/terminfo ./configure $XORG_CONFIG --with-app-defaults=/etc/X11/app-defaults"
     system "make"
   end
 
