@@ -6,12 +6,12 @@ class Xorgserv < Package
   source_sha1 '397e405566651150490ff493e463f1ad'
 
   def self.build
-    system "./configure $XORG_CONFIG --enable-glamor --enable-install-setuid --enable-suid-wrapper --disable-systemd-logind --with-xkb-output=/var/lib/xkb"
-    system "make"
+    system "sudo ./configure $XORG_CONFIG --enable-glamor --enable-install-setuid --enable-suid-wrapper --disable-systemd-logind --with-xkb-output=/var/lib/xkb"
+    system "sudo make"
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install && 
+    system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install && 
     sudo mkdir -pv /etc/X11/xorg.conf.d &&
     sudo cat >> /etc/sysconfig/createfiles << \"EOF\"
     /tmp/.ICE-unix dir 1777 root root
