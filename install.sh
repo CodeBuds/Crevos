@@ -175,10 +175,6 @@ wget -N --continue --no-check-certificate $URL/packages/xterm.rb
 #install git
 (echo y;) | crevos install git
 
-#install nano
-echo "Installing nano"
-(echo y;) | crevos install nano
-
 #prepare sparse checkout .rb packages directory and do it
 cd $CLIB
 git init
