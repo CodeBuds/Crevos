@@ -11,6 +11,6 @@ class Atk < Package
   end
   
   def self.install
-    system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
+    system "sudo make install"
   end
 end
