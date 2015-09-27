@@ -15,3 +15,9 @@ class Pango < Package
     #system "sudo pango-querymodules --update-cache"
   end
 end
+#
+#
+#
+#
+#
+#
