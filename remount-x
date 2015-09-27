@@ -37,8 +37,7 @@ done
   echo ""
   echo ""
   read -p "Please enter (The number nothing else (ex: 2)) the number of the partition N above: " an
-  re='^[0-9]+$'
-  if ! [[ $an =~ $re ]] ; then
+ if [ $(echo $an | tr -d '[:digit:]') ]; then
      echo "ERROR: Not a number..."
      echo "Remember what I said to be careful"
      echo "Now you have 2 choices, either reinstall this script"
