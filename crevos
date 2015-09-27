@@ -418,6 +418,12 @@ when "updategrade"
 when "uninstall-all"
   crevos_uninstall
   system "sudo chmod +x " + CREVOS_COM_PATH
+when "remount-x"
+  system "sudo chmod +x " + CREVOS_COM_PATH
+  system "cd /usr/local/lib/crevos && sudo sh remount-x.sh"
+when "install-x"
+  system "sudo chmod +x " + CREVOS_COM_PATH
+  system "install-x"
 when "reinstall-all"
   crevos_uninstall
   system "sudo chmod +x " + CREVOS_COM_PATH
