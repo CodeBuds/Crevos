@@ -6,11 +6,11 @@ class Pkgconfig < Package
   source_sha1 '71853779b12f958777bffcb8ca6d849b4d3bed46'
 
   def self.build
-      system "./configure --with-internal-glib --libdir=/usr/local/lib64/ CC=\"gcc -m64\" CFLAGS=\" -fPIC\""
-      system "make"
+      system "./configure"
+      system "sudo make"
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
+    system "sudo make", "DESTDIR=#{CREVOS_DEST_DIR}", "install"
   end
 end
