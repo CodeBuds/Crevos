@@ -11,7 +11,7 @@ class Gtk < Package
   depends_on 'libicon'
   
   def self.build
-    system "./configure --prefix=/opt/gtk"
+    system "sudo ./configure --prefix=/opt/gtk"
     system "sudo make"
   end
   
