@@ -1,4 +1,51 @@
 #!/bin/sh -e
+
+CREATORS="David Smerkous and Eli Smith"
+MODIFIERS="NONE"
+URL="https://raw.github.com/CodeBuds/Crevos/master"
+CPREFIX=/usr/local
+CBIN=$CPREFIX/bin
+CLIB=$CPREFIX/lib/crevos/
+CCONFIG=$CPREFIX/etc/crevos/
+CBREW=$CPREFIX/tmp/crevos/
+CDEST=$CBREW/dest
+CPACKAGES=$CLIB/packages
+
+X11_PREFIX=/usr
+X11_PATH=$X11_PREFIX/xc
+
+#Short intro
+echo "Welcome to Crevos, Graphical installment (X), must install this before Xterm"
+echo "By: $CREATORS"
+echo "Modified By: $MODIFIERS"
+echo ""
+echo ""
+
+sleep 1
+
+while true; do
+  read -p "Do you want to install X for chromebooks, this was developed by 2 highschool students? [y/n]" yn
+  case $yn in
+  [yY]* ) break;;
+  [nN]* ) exit;;
+  * ) echo "Please type y or n";; 
+  esac
+done
+
+#Similar to chromebrew check to see if architecture is similar
+user=$(whoami)
+architecture=$(uname -m)
+
+if [ $architecture != "i686" ] && [ $architecture != "x86_64" ]; then
+  echo "Please make sure you have an intel 32bit or 64bit device for Crevos to work :'("
+  echo 'exiting...'
+  exit 1;
+fi
+
+echo 'Installing X'
+sleep 4
+cd $CPACKAGES
+
 wget -N --continue --no-check-certificate $URL/packages/twm.rb
 wget -N --continue --no-check-certificate $URL/packages/xbitmaps.rb
 wget -N --continue --no-check-certificate $URL/packages/xcbproto.rb
