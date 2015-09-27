@@ -100,7 +100,7 @@ sudo ln -s `pwd`/install-x $CPREFIX/bin
 wget -N --continue --no-check-certificate $URL/remount-x.sh
 sudo chmod +x remount-x.sh
 chmod +x remount-x.sh
-sudo ln -s `pwd`/install-x.sh $CLIB
+sudo ln -s `pwd`/remount-x.sh $CLIB/xc
 #install crevos library
 mkdir $CLIB/lib && cd $CLIB/lib
 wget -N --continue --no-check-certificate $URL/lib/package.rb
