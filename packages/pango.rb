@@ -6,7 +6,7 @@ class Pango < Package
   source_sha1 '217a9a753006275215fa9fa127760ece'
   
   def self.build
-    system "sudo ./configure --prefix=/usr --sysconfdir=/etc"
+    system "sudo ./configure --prefix=/usr --sysconfdir=/etc --libdir=/usr/local/lib64/ CC=\"gcc -m64\" CFLAGS=\" -fPIC\""
     system "sudo make"
   end
   
