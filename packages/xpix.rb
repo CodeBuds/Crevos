@@ -5,10 +5,6 @@ class Xpix < Package
   source_url 'http://cairographics.org/releases/pixman-0.32.6.tar.gz'
   source_sha1 '3a30859719a41bd0f5cccffbfefdd4c2'
 
-  depends_on 'buildessential'
-  depends_on 'gtk'
-  depends_on 'pkgconfig'
-
   def self.build
     system "sudo ./configure --prefix=/usr --disable-static"
     system "sudo make"
