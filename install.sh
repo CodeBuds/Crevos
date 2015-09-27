@@ -197,12 +197,5 @@ chmod +x crevos
 chmod +x crevos-uninstall
 chmod +x crevos-reinstall
 
-echo "Installing xterm"
-while true; do
-  read -p "Do you want to install X for chromebooks, it was developed by 2 highschool students? [y/n]" yn
-  case $yn in
-  [yY]* ) install-x;;
-  [nN]* ) break;;
-  * ) echo "Please type y or n";; 
-  esac
-done
+#prompt to install x
+install-x
