@@ -9,11 +9,11 @@ class Fontconfig < Package
   depends_on 'freetype'
 
   def self.build
-    system "./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-docs --docdir=/usr/share/doc/fontconfig-2.11.1"
-    system "make"
+    system "sudo ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var --disable-docs --docdir=/usr/share/doc/fontconfig-2.11.1"
+    system "sudo make"
   end
 
   def self.install
-    system "make", "DESTDIR=#{CREW_DEST_DIR}", "install"
+    system "sudo make", "DESTDIR=#{CREW_DEST_DIR}", "install"
   end
 end
