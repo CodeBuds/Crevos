@@ -8,6 +8,7 @@ class Gtk < Package
   depends_on 'pkgconfig'
   depends_on 'pango'
   depends_on 'atk'
+  depends_on 'libicon'
   
   def self.build
     system "./configure --prefix=/opt/gtk"
