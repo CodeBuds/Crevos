@@ -48,40 +48,40 @@ echo "we will need to remount the user filesystem so we can edit the X11 setting
 while true; do
   read -p "Have you mounted and rebooted your syetem to read and write yet? [y/n]" ynn
   case $ynn in
-  [yY]* ) break;;
+  [yY]* ) $GOING=1; break;;
   [nN]* ) break;;
   * ) echo "Please type y or n";; 
   esac
 done
 if [$GOING = 0]; then
-echo "Please be ready to anwser system settings questions, so that we can proceed"
-sleep 3
-sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification
-sudo crossystem dev_boot_signed_only=0
-sleep 1
-echo ""
-echo ""
-echo "I just ran a script to modify your kernel, so I can access system directories..."
-echo "The above command I just ran said 'Try running the script with ...... --partitions N'"
-echo ""
-echo ""
-read -p "Please enter (The number nothing else ex: 2) the number of the partition N above: " an
-re='^[0-9]+$'
-if ! [[ $an =~ $re ]] ; then
-   echo "error: Not a number... restart amazing script with install-x" >&2; exit 1
-fi
-sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions $an
-sudo crossystem dev_boot_signed_only=0
-sudo mount -o remount,rw /
-echo "Succesful remount of system, now the rest of the script should run with little warnings besides"
-echo "That this isn't a officialy supported device (Luckily we have been able to fix that)"
+  echo "Please be ready to anwser system settings questions, so that we can proceed"
+  sleep 3
+  sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification
+  sudo crossystem dev_boot_signed_only=0
+  sleep 1
+  echo ""
+  echo ""
+  echo "I just ran a script to modify your kernel, so I can access system directories..."
+  echo "The above command I just ran said 'Try running the script with ...... --partitions N'"
+  echo ""
+  echo ""
+  read -p "Please enter (The number nothing else ex: 2) the number of the partition N above: " an
+  re='^[0-9]+$'
+  if ! [[ $an =~ $re ]] ; then
+     echo "error: Not a number... restart amazing script with install-x" >&2; exit 1
+  fi
+  sudo /usr/share/vboot/bin/make_dev_ssd.sh --remove_rootfs_verification --partitions $an
+  sudo crossystem dev_boot_signed_only=0
+  sudo mount -o remount,rw /
+  echo "Succesful remount of system, now the rest of the script should run with little warnings besides"
+  echo "That this isn't a officialy supported device (Luckily we have been able to fix that)"
   read -p "You need to reboot, do you want to now? [y/n]" ny
   sleep 1
   case $ny in
   [yY]* ) sudo reboot;;
   [nN]* ) exit;;
   * ) echo "Sorry didn't understand: $ny";; 
-done
+  done
 fi
 
 echo 'Attempting to install X'
