@@ -1,1 +1,63 @@
+#!/bin/sh -e
 
+#
+#
+# This file is currently highly under development, 
+#
+#
+
+X11_PREFIX=/usr 
+X11_NAME=X11
+X11_PATH=$X11_PREFIX/$X11_NAME
+CREATORS="David Smerkous and Eli Smith"
+URL="https://raw.github.com/CodeBuds/Crevos/master"
+
+
+echo "Welcome to crevos X11, a modified version of X11 just for chromebooks"
+echo "Developed by: $CREATORS"
+
+while true; do
+  read -p "Do you want to install X11 for chromebooks, this was developed by 2 highschool students? [y/n]" yn
+  case $yn in
+  [yY]* ) break;;
+  [nN]* ) exit;;
+  * ) echo "Please type y or n";; 
+  esac
+done
+
+user=$(whoami)
+architecture=$(uname -m)
+
+if [ $architecture != "i686" ] && [ $architecture != "x86_64" ]; then
+  echo "Please make sure you have an intel 32bit or 64bit device for Crevos to work :'("
+  echo 'exiting...'
+  exit 1;
+fi
+cd $X11_PREFIX
+sudo mkdir $X11_NAME
+cd $X11_NAME
+
+export XORG_PREFIX="$X11_PATH"
+export XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc \
+    --localstatedir=/var --disable-static"
+sudo cat > /etc/profile.d/xorg.sh << "EOF"
+XORG_PREFIX="/usr/X11"
+XORG_CONFIG="--prefix=$XORG_PREFIX --sysconfdir=/etc --localstatedir=/var --disable-static"
+export XORG_PREFIX XORG_CONFIG
+EOF
+sudo chmod 644 /etc/profile.d/xorg.sh
+
+echo "$XORG_PREFIX/lib" >> /etc/ld.so.conf
+
+sudo sed "s@/usr/X11R6@$XORG_PREFIX@g" -i /etc/man_db.conf
+
+sudo ln -sf $XORG_PREFIX/share/X11 /usr/share/X11
+
+sudo install -v -m755 -d $XORG_PREFIX
+sudo install -v -m755 -d $XORG_PREFIX/lib
+sudo ln -sf lib $XORG_PREFIX/lib64
+
+cd $X11_PATH
+
+wget "ftp://ftp.x.org/pub/individual/util/util-macros-1.19.0.tar.bz2"
+tar xf util-macros-1.19.0.tar.bz2 -C util-macros --strip-components 1
