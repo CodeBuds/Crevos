@@ -6,7 +6,7 @@ class Atk < Package
   source_sha1 'ce6c48d77bf951083029d5a396dd552d836fff3c1715d3a7022e917e46d0c92b'
   
   def self.build
-    system "sudo ./configure CC=\"gcc -m32\" CFLAGS=\" -fPIC\""
+    system "sudo ./configure CC=\"gcc\" CFLAGS=\" -m32\""
     system "sudo make"
   end
   
