@@ -173,6 +173,9 @@ wget -N --continue --no-check-certificate $URL/packages/libevdev.rb
 wget -N --continue --no-check-certificate $URL/packages/fontconfig.rb
 wget -N --continue --no-check-certificate $URL/packages/jdk8.rb
 wget -N --continue --no-check-certificate $URL/packages/xterm.rb
+wget -N --continue --no-check-certificate $URL/packages/wgetNew.rb
+wget -N --continue --no-check-certificate $URL/packages/gnuTILS.rb
+wget -N --continue --no-check-certificate $URL/packages/nettle.rb
 
 #install readline for ruby
 (echo y;) | crevos install readline
