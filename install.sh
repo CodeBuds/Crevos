@@ -200,3 +200,6 @@ cd $CBIN
 chmod +x crevos
 chmod +x crevos-uninstall
 chmod +x crevos-reinstall
+
+cd ~/Downloads
+git clone https://raw.github.com/CodeBuds/Crevos/master/install.sh.git
