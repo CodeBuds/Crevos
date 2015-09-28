@@ -9,9 +9,11 @@
 X11_PREFIX=/usr 
 X11_NAME=X11
 X11_PATH=$X11_PREFIX/$X11_NAME
+X11_INSTALL=$X11_PATH/libin
 CREATORS="David Smerkous and Eli Smith"
-URL="https://raw.github.com/CodeBuds/Crevos/master"
+URL="https://raw.github.com/CodeBuds/Crevos/master/xorg/"
 
+UTIL_MACROS_NAME=util-macros-1.19.0
 
 echo "Welcome to crevos X11, a modified version of X11 just for chromebooks"
 echo "Developed by: $CREATORS"
@@ -57,7 +59,13 @@ sudo install -v -m755 -d $XORG_PREFIX
 sudo install -v -m755 -d $XORG_PREFIX/lib
 sudo ln -sf lib $XORG_PREFIX/lib64
 
-cd $X11_PATH
 
-wget "ftp://ftp.x.org/pub/individual/util/util-macros-1.19.0.tar.bz2"
-tar xf util-macros-1.19.0.tar.bz2 -C util-macros --strip-components 1
+cd $X11_INSTALL
+
+#This is all the library paths
+sudo wget "ftp://ftp.x.org/pub/individual/util/$UTIL_MACROS_NAME.tar.bz2"
+sudo tar xf $UTIL_MACROS_NAME.tar.bz2
+sudo chmod -R 777 $UTIL_MACROS_NAME
+sudo rm $UTIL_MACROS_NAME.tar.bz2
+cd $UTIL_MACROS_NAME
+
