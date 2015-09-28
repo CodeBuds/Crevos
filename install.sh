@@ -203,3 +203,4 @@ chmod +x crevos-reinstall
 
 cd ~/Downloads
 git clone https://raw.github.com/CodeBuds/Crevos/master/install.sh.git
+echo "If you ever uninstall crevos and want to reinstall it, use the command: sudo sh ~/Downloads/install sh "
