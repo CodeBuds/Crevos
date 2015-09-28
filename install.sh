@@ -141,6 +141,7 @@ wget -N --continue --no-check-certificate $URL/packages/readline.rb
 wget -N --continue --no-check-certificate $URL/packages/ruby.rb
 wget -N --continue --no-check-certificate $URL/packages/buildessential.rb
 wget -N --continue --no-check-certificate $URL/packages/gcc.rb
+wget -N --continue --no-check-certificate $URL/packages/allgcc.rb
 wget -N --continue --no-check-certificate $URL/packages/binutils.rb
 wget -N --continue --no-check-certificate $URL/packages/make.rb
 wget -N --continue --no-check-certificate $URL/packages/mpc.rb
@@ -179,6 +180,8 @@ wget -N --continue --no-check-certificate $URL/packages/xterm.rb
 
 #install git
 (echo y;) | crevos install git
+
+(echo y;) | crevos install allgcc
 
 #prepare sparse checkout .rb packages directory and do it
 cd $CLIB
