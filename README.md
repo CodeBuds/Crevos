@@ -2,7 +2,7 @@
 ####A chromebook terminal development system </br>
 ###Do not install X11 until this message has been removed, it is currently having major bugs So don't use remount-x command or install-x command until this message is cleared</br></br>
 ######Side note, crevos update won't update X11 or the actuall crevos command, to do so run the command crevos-reinstall, to get the most updated crevos, As you can see by the commits on average I fix a bug every 20 minutes 
-This system was created by David Smerkous and Eli Smith from the Plano ISD Academy High School </br>
+This system was created by David Smerkous and Eli Smith (with help from Usaid Malik) from the Plano ISD Academy High School </br>
 Crevos is an acronym for Ch<B>R</B>ome d<B>EV</B>elopment <B>O</B>perating <B>S</B>ystem</br>
 This script is still under heavy modification and is in no way ready to be used. If you have any questions, DM either one of us.</br></br>
 Install
