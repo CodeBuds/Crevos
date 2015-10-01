@@ -22,6 +22,7 @@ This is a public repo, but mostly made for a private event for our school, if wa
 If you can help/give some input please use these contact methods</br>
 David Smerkous:(Email) smerkousdavid@gmail.com</br>
 Eli Smith:(Email) plunkinguitar@gmail.com</br>
+Usaid Malik (only for c-cpp issues): (Email) usaidpro@gmail.com</br>
 
 ------------
 
