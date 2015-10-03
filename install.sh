@@ -105,6 +105,10 @@ wget -N --continue --no-check-certificate $URL/depend/crevos-ruby
 sudo chmod +x crevos-ruby
 chmod +x crevos-ruby
 sudo ln -s `pwd`/crevos-ruby $CPREFIX/bin
+wget -N --continue --no-check-certificate $URL/depend/runcpp
+sudo chmod +x runcpp
+chmod +x runcpp
+sudo ln -s `pwd`/runcpp $CPREFIX/bin
 #install crevos library
 mkdir $CLIB/lib && cd $CLIB/lib
 wget -N --continue --no-check-certificate $URL/lib/package.rb
