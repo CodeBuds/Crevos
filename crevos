@@ -426,9 +426,9 @@ when "updategrade"
 when "uninstall-all"
   crevos_uninstall
   system "sudo chmod +x " + CREVOS_COM_PATH
-when "remount-x"
+when "root-mount"
   puts "crevos is using bash, and we need sh"
-  puts "try just using remount-x, instead of crevos remount-x"
+  puts "try just using root-mount, instead of crevos remount-mount"
 when "install-x"
   puts "crevos is using bash, and we need sh"
   puts "try just using install-x, instead of crevos install-x"
