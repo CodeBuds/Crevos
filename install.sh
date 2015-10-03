@@ -85,22 +85,26 @@ wget -N --continue --no-check-certificate $URL/crevos
 sudo chmod +x crevos
 chmod +x crevos
 sudo ln -s `pwd`/crevos $CPREFIX/bin
-wget -N --continue --no-check-certificate $URL/crevos-uninstall
+wget -N --continue --no-check-certificate $URL/depend/crevos-uninstall
 sudo chmod +x crevos-uninstall
 chmod +x crevos-uninstall
 sudo ln -s `pwd`/crevos-uninstall $CPREFIX/bin
-wget -N --continue --no-check-certificate $URL/crevos-reinstall
+wget -N --continue --no-check-certificate $URL/depend/crevos-reinstall
 sudo chmod +x crevos-reinstall
 chmod +x crevos-reinstall
 sudo ln -s `pwd`/crevos-reinstall $CPREFIX/bin
-wget -N --continue --no-check-certificate $URL/install-x
+wget -N --continue --no-check-certificate $URL/depend/install-x
 sudo chmod +x install-x
 chmod +x install-x
 sudo ln -s `pwd`/install-x $CPREFIX/bin
-wget -N --continue --no-check-certificate $URL/remount-x
-sudo chmod +x remount-x
-chmod +x remount-x
-sudo ln -s `pwd`/remount-x $CPREFIX/bin
+wget -N --continue --no-check-certificate $URL/depend/root-mount
+sudo chmod +x root-mount
+chmod +x root-mount
+sudo ln -s `pwd`/root-mount $CPREFIX/bin
+wget -N --continue --no-check-certificate $URL/depend/crevos-ruby
+sudo chmod +x crevos-ruby
+chmod +x crevos-ruby
+sudo ln -s `pwd`/crevos-ruby $CPREFIX/bin
 #install crevos library
 mkdir $CLIB/lib && cd $CLIB/lib
 wget -N --continue --no-check-certificate $URL/lib/package.rb
@@ -108,6 +112,8 @@ wget -N --continue --no-check-certificate $URL/lib/package_helpers.rb
 
 cd $CBIN
 chmod +x crevos
+chmod +x crevos-ruby
+chmod +x root-mount
 chmod +x crevos-uninstall
 chmod +x crevos-reinstall
 
@@ -148,34 +154,9 @@ wget -N --continue --no-check-certificate $URL/packages/mpfr.rb
 wget -N --continue --no-check-certificate $URL/packages/gmp.rb
 wget -N --continue --no-check-certificate $URL/packages/glibc.rb
 wget -N --continue --no-check-certificate $URL/packages/linuxheaders.rb
-wget -N --continue --no-check-certificate $URL/packages/pkgconfig.rb
-wget -N --continue --no-check-certificate $URL/packages/gtk.rb
-wget -N --continue --no-check-certificate $URL/packages/utilmacros.rb
-wget -N --continue --no-check-certificate $URL/packages/libxau.rb
-wget -N --continue --no-check-certificate $URL/packages/libxcb.rb
-wget -N --continue --no-check-certificate $URL/packages/libxdmcp.rb
 wget -N --continue --no-check-certificate $URL/packages/nano.rb
 wget -N --continue --no-check-certificate $URL/packages/nanoinst.rb
-wget -N --continue --no-check-certificate $URL/packages/twm.rb
-wget -N --continue --no-check-certificate $URL/packages/xbitmaps.rb
-wget -N --continue --no-check-certificate $URL/packages/xcbproto.rb
-wget -N --continue --no-check-certificate $URL/packages/xcbutil.rb
-wget -N --continue --no-check-certificate $URL/packages/xcbutilimage.rb
-wget -N --continue --no-check-certificate $URL/packages/xcbutilkeysysms.rb
-wget -N --continue --no-check-certificate $URL/packages/xcbutilrender.rb
-wget -N --continue --no-check-certificate $URL/packages/xcbutilwm.rb
-wget -N --continue --no-check-certificate $URL/packages/xcursor.rb
-wget -N --continue --no-check-certificate $URL/packages/xkeyboardconf.rb
-wget -N --continue --no-check-certificate $URL/packages/xorgserver.rb
-wget -N --continue --no-check-certificate $URL/packages/xpix.rb
-wget -N --continue --no-check-certificate $URL/packages/freetype.rb
-wget -N --continue --no-check-certificate $URL/packages/libevdev.rb
-wget -N --continue --no-check-certificate $URL/packages/fontconfig.rb
 wget -N --continue --no-check-certificate $URL/packages/jdk8.rb
-wget -N --continue --no-check-certificate $URL/packages/xterm.rb
-wget -N --continue --no-check-certificate $URL/packages/wgetNew.rb
-wget -N --continue --no-check-certificate $URL/packages/gnuTILS.rb
-wget -N --continue --no-check-certificate $URL/packages/nettle.rb
 
 #install readline for ruby
 (echo y;) | crevos install readline
@@ -198,5 +179,7 @@ echo "So see if you can run something graphical"
 
 cd $CBIN
 chmod +x crevos
+chmod +x crevos-ruby
+chmod +x root-mount
 chmod +x crevos-uninstall
 chmod +x crevos-reinstall
