@@ -1,6 +1,6 @@
 # Crevos
-####A chromebook terminal development system </br>
-###Do not install X11 until this message has been removed, it is currently having major bugs So don't use remount-x command or install-x command until this message is cleared</br></br>
+###A chromebook terminal development system </br></br>
+####Crevos fixed up, crevos currently runs Python, Gcc, G++, Java (JRE), Ruby and Perl. Soon we will get graphical applications to work, we weren't successful to use the original mount for X11 so we are going to use croutons core,  so no DE to run single applications on chromebooks</br></br>
 ######Side note, crevos update won't update X11 or the actual crevos command, to do so run the command crevos-reinstall, to get the most updated crevos, As you can see by the commits on average I fix a bug every 20 minutes 
 This system was created by David Smerkous and Eli Smith from the Plano ISD Academy High School </br>
 Crevos is an acronym for Ch<B>R</B>ome d<B>EV</B>elopment <B>O</B>perating <B>S</B>ystem</br>
