@@ -1,4 +1,6 @@
 # Crevos
+###NOT BEING TOUCHED, Eli and I are stuck in a position where we want to keep moving on with the direction of Cri instead of Crevos. This repo has a 20% of being deleted
+#####For now
 ###A chromebook terminal development system </br></br>
 ####Crevos fixed up, crevos currently runs Python, Gcc, G++, Java (JRE), Ruby and Perl. Soon we will get graphical applications to work, we weren't successful to use the original mount for X11 so we are going to use croutons core,  so no DE to run single applications on chromebooks</br></br>
 ######Side note, crevos update won't update X11 or the actual crevos command, to do so run the command crevos-reinstall, to get the most updated crevos, As you can see by the commits on average I fix a bug every 20 minutes 
